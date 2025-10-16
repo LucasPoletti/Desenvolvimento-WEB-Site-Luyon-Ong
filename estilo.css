@@ -1,0 +1,269 @@
+:root {
+  --primaria: #0077cc;
+  --secundaria: #f0f4f8;
+  --texto: #333;
+  --borda: #ccc;
+  --radius: 10px;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background-color: var(--secundaria);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primaria);
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+input {
+  padding: 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius);
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+input:focus {
+  border-color: var(--primaria);
+  box-shadow: 0 0 6px rgba(0, 119, 204, 0.2);
+  outline: none;
+}
+
+button {
+  margin-top: 30px;
+  background-color: var(--primaria);
+  color: white;
+  padding: 14px 25px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+/* mensagem de sucesso */
+.success {
+  background-color: #e6ffef;
+  border: 1px solid #24b36b;
+  color: #0b7a45;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-top: 18px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(36, 179, 107, 0.08);
+}
+
+/* animação sutil de aparição */
+.success.show {
+  animation: appear 0.3s ease-out;
+}
+
+@keyframes appear {
+  from { transform: translateY(-6px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+
+/* ====== CABEÇALHO E NAVEGAÇÃO ====== */
+header {
+  background-color: var(--primaria);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.3s;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ====== RODAPÉ ====== */
+footer {
+  text-align: center;
+  background-color: #f8f8f8;
+  color: var(--texto);
+  padding: 20px;
+  font-size: 14px;
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+}
+
+header {
+  background-color: rgba(0, 119, 204, 0.9); /* Azul primário semitransparente */
+  padding: 20px 0;
+  text-align: center;
+  color: #fff; /* letras brancas */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header nav a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+header nav a:hover {
+  color: #ff9900; /* cor secundária do botão para hover */
+}
+
+/* Se for uma classe */
+.luyon-texto {
+    color: #000000; /* Preto */
+}
+
+/* Se for um id */
+#luyon-texto {
+    color: #000000; /* Preto */
+}
+
+:root {
+    --primaria: #0077ff;
+    --secundaria: #0055cc;
+    --fundo: #f0f4f8;
+    --branco: #ffffff;
+    --erro: #ff4d4f;
+    --sucesso: #52c41a;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--fundo);
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: var(--primaria);
+    color: var(--branco);
+    text-align: center;
+    padding: 1rem;
+}
+
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.error-message {
+    color: var(--erro);
+    font-size: 0.85rem;
+    display: none;
+    position: absolute;
+    bottom: -1.2rem;
+}
+
+.success-message {
+    color: var(--sucesso);
+    font-size: 1rem;
+    text-align: center;
+    display: none;
+    margin-top: 1rem;
+}
+
+button {
+    background-color: var(--primaria);
+    color: var(--branco);
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: var(--secundaria);
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyon — Blog</title>
+    <style>
+        *, *:before, *:after { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; line-height: 1.6; word-break: break-word; }
+        header, footer { background-color: #eee; padding: 15px 0; text-align: center; }
+        nav ul { list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav li { margin: 0 10px; }
+        nav a { text-decoration: none; color: #0077cc; font-weight: bold; }
+        nav a:hover { color: #005fa3; }
+        .container { width: 90%; max-width: 900px; margin: 30px auto; padding: 25px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1, h2 { text-align: center; margin-bottom: 20px; }
+        .blog-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; background-color: #fafafa; }
+        .blog-card h3 { margin-top: 0; }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 1em; margin-top: 10px; }
+        .btn:hover { background-color: #005fa3; }
+        footer p { margin: 0; }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Luyon — Tudo é Possível</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="voluntariado.html">Voluntariado</a></li>
+            <li><a href="doacoes.html">Doações</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section>
+        <h2>Últimas notícias</h2>
+
+        <div class="blog-card">
+            <h3>Oficina de pintura transforma a vida de crianças</h3>
+            <p>Na última semana, 30 crianças participaram de uma oficina de pintura promovida pela Luyon, explorando sua criatividade e aprendendo técnicas artísticas fundamentais.</p>
+            <a href="#" class="btn">Ler mais</a>
+        </div>
+
+        <div class="blog-card">
+            <h3>Projeto de música reúne jovens talentos</h3>
+            <p>O projeto de música da Luyon contou com a participação de 20 jovens que aprimoraram habilidades em instrumentos e expressão artística, gerando entusiasmo e confiança.</p>
+            <a href="#" class="btn">Ler mais</a>
+        </div>
+
+        <div class="blog-card">
+            <h3>Teatro comunitário fortalece autoestima</h3>
+            <p>Nosso projeto de teatro permitiu que crianças e adolescentes apresentassem suas primeiras peças, promovendo integração, criatividade e desenvolvimento pessoal.</p>
+            <a href="#" class="btn">Ler mais</a>
+        </div>
+
+        <p>Mais notícias e histórias podem ser encontradas em <a href="https://www.luyon.com.br">luyon.com.br</a>.</p>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; <span id="ano"></span> Luyon. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

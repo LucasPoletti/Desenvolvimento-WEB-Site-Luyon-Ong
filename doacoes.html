@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyon — Doações</title>
+    <style>
+        *, *:before, *:after { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; line-height: 1.6; word-break: break-word; }
+        header, footer { background-color: #eee; padding: 15px 0; text-align: center; }
+        nav ul { list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav li { margin: 0 10px; }
+        nav a { text-decoration: none; color: #0077cc; font-weight: bold; }
+        nav a:hover { color: #005fa3; }
+        .container { width: 90%; max-width: 900px; margin: 30px auto; padding: 25px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1, h2 { text-align: center; margin-bottom: 20px; }
+        p { margin-bottom: 15px; }
+        .donation-card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 20px; background-color: #fafafa; text-align: center; word-break: break-word; }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 1em; margin-top: 10px; }
+        .btn:hover { background-color: #005fa3; }
+        .pix-key { font-weight: bold; font-size: 1.1em; margin-top: 10px; display: block; word-break: break-word; }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Luyon — Doações</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="voluntariado.html">Voluntariado</a></li>
+            <li><a href="doacoes.html">Doações</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section>
+        <h2>Como você pode ajudar</h2>
+        <p>Sua contribuição ajuda a Luyon a oferecer oficinas de arte, música e teatro para crianças e jovens em situação de vulnerabilidade. Com sua doação, podemos garantir materiais, instrumentos e espaço adequado para nossos projetos.</p>
+    </section>
+
+    <section>
+        <h2>Doações sugeridas</h2>
+
+        <div class="donation-card">
+            <p>R$ 50 — Material de pintura para 1 criança</p>
+            <span class="pix-key" id="pix1">PIX: 61.517.197/0001-25</span>
+            <button class="btn" onclick="copyPIX('pix1')">Copiar PIX (NuBank)</button>
+        </div>
+
+        <div class="donation-card">
+            <p>R$ 100 — Participação em oficina de música</p>
+            <span class="pix-key" id="pix2">PIX: 61.517.197/0001-25</span>
+            <button class="btn" onclick="copyPIX('pix2')">Copiar PIX (NuBank)</button>
+        </div>
+
+        <div class="donation-card">
+            <p>R$ 200 — Oficina de teatro completa</p>
+            <span class="pix-key" id="pix3">PIX: 61.517.197/0001-25</span>
+            <button class="btn" onclick="copyPIX('pix3')">Copiar PIX (NuBank)</button>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; <span id="ano"></span> Luyon. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    function copyPIX(id) {
+        const pix = document.getElementById(id).textContent.replace('PIX: ', '');
+        navigator.clipboard.writeText(pix).then(() => {
+            alert('PIX copiado: ' + pix + '\nAbra seu app do NuBank para concluir a doação.');
+        });
+    }
+</script>
+
+</body>
+</html>

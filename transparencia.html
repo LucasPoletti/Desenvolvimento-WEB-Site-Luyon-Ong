@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyon — Transparência</title>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        *, *:before, *:after { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; line-height: 1.6; word-break: break-word; }
+        header, footer { background-color: #eee; padding: 15px 0; text-align: center; }
+        nav ul { list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav li { margin: 0 10px; }
+        nav a { text-decoration: none; color: #0077cc; font-weight: bold; }
+        nav a:hover { color: #005fa3; }
+        .container { width: 90%; max-width: 900px; margin: 30px auto; padding: 25px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1, h2, h3 { text-align: center; margin-bottom: 20px; }
+        p { margin-bottom: 15px; }
+        .chart-card { margin-bottom: 30px; }
+        canvas { background-color: #fafafa; border-radius: 8px; padding: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #0077cc; color: #fff; }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 1em; margin-top: 10px; }
+        .btn:hover { background-color: #005fa3; }
+        footer p { margin: 0; }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Luyon — Tudo é Possível</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="voluntariado.html">Voluntariado</a></li>
+            <li><a href="doacoes.html">Doações</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section>
+        <h2>Relatórios e Números</h2>
+        <p>A Luyon disponibiliza dados sobre doações, gastos e impacto social de forma clara e acessível, garantindo confiança e accountability.</p>
+    </section>
+
+    <section class="chart-card">
+        <h3>Distribuição de recursos por projeto</h3>
+        <canvas id="chart-recursos" width="400" height="300" aria-label="Gráfico pizza distribuição de recursos" role="img"></canvas>
+    </section>
+
+    <section class="chart-card">
+        <h3>Voluntários por mês</h3>
+        <canvas id="chart-voluntarios" width="400" height="300" aria-label="Gráfico de linha voluntários ao longo do tempo" role="img"></canvas>
+    </section>
+
+    <section>
+        <h3>Doações e Gastos</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Doações recebidas (R$)</th>
+                    <th>Gastos (R$)</th>
+                    <th>Saldo (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Janeiro</td>
+                    <td>5.000</td>
+                    <td>3.200</td>
+                    <td>1.800</td>
+                </tr>
+                <tr>
+                    <td>Fevereiro</td>
+                    <td>4.500</td>
+                    <td>2.700</td>
+                    <td>1.800</td>
+                </tr>
+                <tr>
+                    <td>Março</td>
+                    <td>6.000</td>
+                    <td>4.000</td>
+                    <td>2.000</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#" class="btn">Baixar relatório completo (PDF)</a>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; <span id="ano"></span> Luyon. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Gráfico de pizza - Recursos
+    const ctxRecursos = document.getElementById('chart-recursos').getContext('2d');
+    new Chart(ctxRecursos, {
+        type: 'pie',
+        data: {
+            labels: ['Projeto A', 'Projeto B', 'Projeto C'],
+            datasets: [{
+                data: [5000, 3000, 2000],
+                backgroundColor: ['#0077cc', '#00a3cc', '#00cc77']
+            }]
+        },
+        options: { responsive: true }
+    });
+
+    // Gráfico de linha - Voluntários
+    const ctxVoluntarios = document.getElementById('chart-voluntarios').getContext('2d');
+    new Chart(ctxVoluntarios, {
+        type: 'line',
+        data: {
+            labels: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho'],
+            datasets: [{
+                label: 'Voluntários',
+                data: [12, 15, 18, 20, 22, 25],
+                borderColor: '#0077cc',
+                backgroundColor: 'rgba(0,119,204,0.2)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: { responsive: true }
+    });
+</script>
+
+</body>
+</html>

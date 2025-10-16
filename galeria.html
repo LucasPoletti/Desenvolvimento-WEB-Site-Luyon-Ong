@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Luyon — Galeria de Projetos</title>
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <style>
+            /* Estilos básicos para grid e modal */
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            .gallery-item img {
+                width: 100%;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.6);
+                justify-content: center;
+                align-items: center;
+            }
+            .modal-content {
+                background-color: #fff;
+                padding: 20px;
+                max-width: 500px;
+                border-radius: 8px;
+                text-align: left;
+            }
+            .close-btn {
+                float: right;
+                cursor: pointer;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+            .modal-content img {
+                width: 100%;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <h1>Luyon — Galeria de Projetos</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="voluntariado.html">Voluntariado</a></li>
+                    <li><a href="doacoes.html">Doações</a></li>
+                    <li><a href="transparencia.html">Transparência</a></li>
+                    <li><a href="admin-login.html">Área Administrativa</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section>
+                <h2>Galeria Completa de Projetos</h2>
+                <p>Explore todos os projetos da Luyon e veja como estamos transformando vidas através da arte:</p>
+
+                <div class="gallery-grid">
+                    <!-- Projeto 1: Oficina de Pintura -->
+                    <figure class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300?text=Oficina+de+Pintura" 
+                             alt="Crianças pintando" 
+                             onclick="openModal('modal-pintura')" />
+                        <figcaption>Oficina de Pintura</figcaption>
+                    </figure>
+
+                    <!-- Projeto 2: Teatro Comunitário -->
+                    <figure class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300?text=Teatro+Comunitario" 
+                             alt="Apresentação de teatro" 
+                             onclick="openModal('modal-teatro')" />
+                        <figcaption>Teatro Comunitário</figcaption>
+                    </figure>
+
+                    <!-- Projeto 3: Música para Todos -->
+                    <figure class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300?text=Musica+para+Todos" 
+                             alt="Aulas de música" 
+                             onclick="openModal('modal-musica')" />
+                        <figcaption>Música para Todos</figcaption>
+                    </figure>
+
+                    <!-- Podemos repetir imagens de exemplo para completar 20 itens -->
+                    <!-- Para simplificação aqui adicionamos mais imagens fictícias -->
+                    <figure class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300?text=Projeto+4" alt="Projeto 4">
+                        <figcaption>Projeto 4</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="https://via.placeholder.com/400x300?text=Projeto+5" alt="Projeto 5">
+                        <figcaption>Projeto 5</figcaption>
+                    </figure>
+                    <!-- ... continue até 20 -->
+                </div>
+            </section>
+
+            <!-- Reutilizando modais dos projetos principais -->
+            <div id="modal-pintura" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal('modal-pintura')">&times;</span>
+                    <h3>Oficina de Pintura</h3>
+                    <img src="https://via.placeholder.com/500x300?text=Oficina+de+Pintura" alt="Crianças pintando">
+                    <p>Este projeto oferece aulas de pintura e desenho para crianças de 7 a 12 anos, estimulando criatividade, expressão e autoestima. Durante as aulas, cada participante aprende técnicas de cores, perspectiva e composição, além de desenvolver projetos individuais e coletivos. A oficina também promove exposições internas e pequenas apresentações na comunidade, incentivando o reconhecimento artístico dos alunos.</p>
+                </div>
+            </div>
+
+            <div id="modal-teatro" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal('modal-teatro')">&times;</span>
+                    <h3>Teatro Comunitário</h3>
+                    <img src="https://via.placeholder.com/500x300?text=Teatro+Comunitario" alt="Apresentação de teatro">
+                    <p>O Teatro Comunitário é destinado a jovens de 13 a 18 anos e tem como objetivo desenvolver habilidades de comunicação, expressão corporal e trabalho em equipe. Os participantes criam roteiros, ensaiam peças e realizam apresentações para a comunidade. Além de melhorar a confiança e autoestima, o projeto promove integração social e valorização da cultura local.</p>
+                </div>
+            </div>
+
+            <div id="modal-musica" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal('modal-musica')">&times;</span>
+                    <h3>Música para Todos</h3>
+                    <img src="https://via.placeholder.com/500x300?text=Musica+para+Todos" alt="Aulas de música">
+                    <p>Este projeto oferece aulas de música, canto e instrumentos para crianças e jovens, promovendo inclusão e desenvolvimento musical. Os alunos aprendem teoria musical, prática instrumental e participam de apresentações comunitárias. A iniciativa contribui para a expressão artística, disciplina, concentração e fortalecimento de vínculos sociais.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; <span id="ano"></span> Luyon. Todos os direitos reservados.</p>
+        </footer>
+
+        <script>
+            document.getElementById('ano').textContent = new Date().getFullYear();
+
+            function openModal(id) {
+                document.getElementById(id).style.display = 'flex';
+            }
+
+            function closeModal(id) {
+                document.getElementById(id).style.display = 'none';
+            }
+        </script>
+    </body>
+</html>
