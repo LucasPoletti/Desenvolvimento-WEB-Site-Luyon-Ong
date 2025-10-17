@@ -1,0 +1,366 @@
+/* ==========================
+   VARIÁVEIS DE COR E BASE
+========================== */
+:root {
+  /* Cores Principais */
+  --primaria: #0077cc; /* Azul Luyon (usado em header, títulos) */
+  --destaque: #ff9900; /* Laranja (usado em botões principais, links de menu hover) */
+  --secundaria: #f0f4f8; /* Fundo do BODY/Rodapé (um cinza claro muito suave) */
+  --texto: #333;
+  --cinza-claro: #f7f7f7;
+
+  /* Elementos */
+  --borda: #ccc;
+  --radius: 10px;
+  --branco: #ffffff;
+
+  /* Feedback */
+  --erro: #ff4d4f;
+  --sucesso: #24b36b;
+}
+
+/* ==========================
+   BASE & RESET
+========================== */
+*, *:before, *:after { box-sizing: border-box; }
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--secundaria);
+  margin: 0;
+  padding: 0;
+  color: var(--texto);
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+/* Ajuste de Margem */
+p { margin-bottom: 15px; }
+
+/* ==========================
+   CABEÇALHO
+========================== */
+header {
+  background-color: var(--primaria); /* Fundo Azul */
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  color: var(--branco); /* Cor do Título para Branco */
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav li {
+  margin: 0 5px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--branco); /* Cor dos links do topo para Branco */
+  font-weight: bold;
+  font-size: 1em;
+  transition: color 0.3s;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+nav a:hover, nav a.active { 
+    color: var(--destaque); /* Hover Laranja */
+}
+
+
+/* ==========================
+   HERO / DESTAQUE PRINCIPAL
+========================== */
+.hero { 
+  background-color: var(--branco); 
+  color: var(--texto); 
+  padding: 40px 20px; 
+  text-align: center; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+}
+.hero h2 { 
+    font-size: 2.5em; 
+    margin-bottom: 15px; 
+}
+.hero p { 
+    font-size: 1.1em; 
+    margin-bottom: 25px; 
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-actions {
+    margin-top: 30px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px;
+}
+
+/* ==========================
+   BOTÕES (Gerais)
+========================== */
+.btn { 
+    display: inline-block; 
+    padding: 12px 25px; 
+    border: none; 
+    border-radius: var(--radius); 
+    cursor: pointer; 
+    text-decoration: none; 
+    font-size: 1em; 
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    text-align: center;
+}
+
+/* Botão principal (Laranja) */
+.btn-principal, .btn-hero { 
+    background-color: var(--destaque); 
+    color: var(--branco);
+}
+.btn-principal:hover, .btn-hero:hover { 
+    background-color: #e68a00; /* Laranja Escuro */
+    color: var(--branco);
+}
+
+
+/* ==========================
+   CONTAINER E SEÇÕES
+========================== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--texto);
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.section { 
+    margin-bottom: 50px; 
+}
+
+/* Estilo para a seção Outros Projetos na página projetos.html */
+.secondary-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.secondary-projects-grid .card {
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra mais leve */
+    text-align: center;
+    transition: none;
+}
+.secondary-projects-grid .card:hover {
+    transform: none;
+    background-color: var(--cinza-claro);
+}
+
+
+/* ==========================
+   CARDS (Missão/Visão/Valores)
+========================== */
+.cards { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+}
+.card { 
+    background-color: var(--branco); 
+    padding: 25px; 
+    border-radius: var(--radius); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    text-align: left; 
+    transition: transform 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+.card h3 { 
+    color: var(--primaria); 
+    margin-top: 0; 
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+.card p {
+    flex-grow: 1;
+}
+.card img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 15px 0;
+    object-fit: cover; /* Garante que as imagens preencham o espaço no card */
+}
+
+
+/* ==========================
+   FORMULÁRIOS (ESTILOS MELHORADOS)
+========================== */
+/* Contêiner de formulário (usado em cadastro.html) */
+.form-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--branco); 
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
+}
+
+/* Títulos de seção dentro do formulário */
+form h3 {
+    color: var(--primaria);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--secundaria);
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative; 
+}
+
+label {
+    display: block;
+    margin: 15px 0 5px; 
+    font-weight: bold;
+    color: var(--texto);
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="date"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primaria);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.1); 
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Checkboxes e Radios */
+.checkbox-group, .availability-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.checkbox-group label, .availability-group label {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    font-weight: normal;
+    color: var(--texto);
+    cursor: pointer;
+}
+.checkbox-group input[type="checkbox"], .availability-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+/* Mensagens de Erro */
+.error-message {
+  color: var(--erro);
+  font-size: 0.85rem;
+  display: none; 
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+/* Mensagem de Sucesso */
+.success-message {
+  color: var(--sucesso);
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  border-radius: 5px;
+  background-color: rgba(36, 179, 107, 0.1); 
+  border: 1px solid var(--sucesso);
+  display: none;
+}
+
+
+/* ==========================
+   RODAPÉ
+========================== */
+footer { 
+    background-color: var(--secundaria); 
+    padding: 15px 0; 
+    text-align: center; 
+    margin-top: 40px;
+}
+footer p { 
+    margin: 5px 0; 
+}
+footer nav ul { 
+    justify-content: center; 
+    margin-top: 5px;
+}
+footer nav a {
+    color: var(--texto);
+    font-weight: normal;
+}
+footer nav a:hover {
+    color: var(--primaria);
+}
+
+/* ==========================
+   MEDIA QUERIES (Responsividade)
+========================== */
+@media (max-width: 600px) {
+    .hero {
+        padding: 30px 15px;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .hero-actions {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+    }
+    .form-container {
+        padding: 20px 15px;
+    }
+}

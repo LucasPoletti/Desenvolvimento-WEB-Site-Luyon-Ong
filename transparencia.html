@@ -3,37 +3,114 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luyon — Transparência</title>
+    <title>Luyon — Dashboard de Impacto e Transparência</title>
 
-    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    
+        <style>
+        /* Ajuste do container principal (usando o estilo do formulário para centralizar) */
+        .transparencia-container { 
+            max-width: 900px; /* Reduzido de 1100px para 900px */
+            margin: 30px auto; 
+            padding: 25px; 
+            background-color: var(--branco); 
+            border-radius: var(--radius); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
 
-    <style>
-        *, *:before, *:after { box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; line-height: 1.6; word-break: break-word; }
-        header, footer { background-color: #eee; padding: 15px 0; text-align: center; }
-        nav ul { list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav li { margin: 0 10px; }
-        nav a { text-decoration: none; color: #0077cc; font-weight: bold; }
-        nav a:hover { color: #005fa3; }
-        .container { width: 90%; max-width: 900px; margin: 30px auto; padding: 25px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1, h2, h3 { text-align: center; margin-bottom: 20px; }
-        p { margin-bottom: 15px; }
-        .chart-card { margin-bottom: 30px; }
-        canvas { background-color: #fafafa; border-radius: 8px; padding: 15px; }
-        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
-        th { background-color: #0077cc; color: #fff; }
-        .btn { display: inline-block; padding: 10px 20px; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 1em; margin-top: 10px; }
-        .btn:hover { background-color: #005fa3; }
-        footer p { margin: 0; }
+        /* Estilos para Destaques (KPIs) - MANTIDO ESTILOS, MAS REDUZIDO O TAMANHO DA FONTE */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Minmax ligeiramente menor */
+            gap: 15px; /* Reduzido o espaçamento */
+            margin-bottom: 30px;
+        }
+        .kpi-card {
+            background-color: var(--secundaria);
+            padding: 15px; /* Reduzido o padding */
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        .kpi-card .number {
+            font-size: 2em; /* Fonte menor (era 2.5em) */
+            font-weight: bold;
+            color: var(--destaque);
+            line-height: 1.2;
+        }
+        .kpi-card .label {
+            font-size: 0.9em;
+            color: var(--texto);
+            margin-top: 5px;
+        }
+
+        /* Estilos para Alternância de Gráfico (MANTIDO) */
+        .chart-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .chart-toggle button {
+            background-color: var(--primaria);
+            color: var(--branco);
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: background-color 0.3s;
+        }
+        .chart-toggle button.active {
+            background-color: var(--destaque);
+            font-weight: bold;
+        }
+        .chart-toggle button:hover:not(.active) {
+            background-color: #005fa3;
+        }
+        
+        .chart-card { 
+            margin-bottom: 30px; /* Margem menor */
+            padding: 15px 0;
+            border-bottom: 1px solid var(--secundaria);
+        }
+        .chart-card:last-child {
+            border-bottom: none;
+        }
+
+        /* CANVAS - O principal para a sutileza */
+        canvas { 
+            max-height: 300px; /* Limita a altura máxima do gráfico */
+            max-width: 80%; /* Limita a largura máxima do gráfico */
+            margin: 0 auto; /* Centraliza o gráfico */
+            display: block;
+            background-color: var(--cinza-claro); 
+            border-radius: 8px; 
+            padding: 15px; 
+        }
+        
+        /* Estilos para Tabela de Dados (Mantido) */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-bottom: 30px; 
+        }
+        th { 
+            background-color: var(--primaria); 
+            color: var(--branco); 
+            padding: 10px; /* Padding um pouco menor */
+        }
+        td {
+            border: 1px solid #ddd; 
+            padding: 10px; 
+            text-align: center; 
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Luyon — Tudo é Possível</h1>
+    <h1>Luyon — Transparência</h1>
     <nav>
         <ul>
             <li><a href="index.html">Início</a></li>
@@ -41,103 +118,186 @@
             <li><a href="projetos.html">Projetos</a></li>
             <li><a href="voluntariado.html">Voluntariado</a></li>
             <li><a href="doacoes.html">Doações</a></li>
-            <li><a href="transparencia.html">Transparência</a></li>
+            <li><a href="transparencia.html" class="active">Transparência</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contato.html">Contato</a></li>
         </ul>
     </nav>
 </header>
 
+<section class="hero">
+    <h2>Dashboard de Impacto e Responsabilidade</h2>
+    <p>A Luyon garante total transparência no uso dos recursos. Veja o impacto das suas doações em tempo real e nossos relatórios financeiros.</p>
+</section>
+
 <main class="container">
+    <div class="transparencia-container">
 
-    <section>
-        <h2>Relatórios e Números</h2>
-        <p>A Luyon disponibiliza dados sobre doações, gastos e impacto social de forma clara e acessível, garantindo confiança e accountability.</p>
-    </section>
+        <h2>Impacto Social em Destaque</h2>
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="number">125+</div>
+                <div class="label">Crianças Atendidas</div>
+            </div>
+            <div class="kpi-card">
+                <div class="number">28</div>
+                <div class="label">Voluntários Ativos</div>
+            </div>
+            <div class="kpi-card">
+                <div class="number">5</div>
+                <div class="label">Projetos de Arte</div>
+            </div>
+            <div class="kpi-card">
+                <div class="number">R$ 15K</div>
+                <div class="label">Doações no Último Trimestre</div>
+            </div>
+        </div>
 
-    <section class="chart-card">
-        <h3>Distribuição de recursos por projeto</h3>
-        <canvas id="chart-recursos" width="400" height="300" aria-label="Gráfico pizza distribuição de recursos" role="img"></canvas>
-    </section>
+        <section class="chart-card">
+            <h2>Gestão de Recursos Financeiros</h2>
+            
+            <div class="chart-toggle">
+                <button id="toggle-pie" class="active" onclick="toggleChart('pie')">Distribuição de Projetos</button>
+                <button id="toggle-bar" onclick="toggleChart('bar')">Gastos por Categoria</button>
+            </div>
+            
+            <canvas id="chart-recursos" width="400" height="300" aria-label="Gráfico de recursos" role="img"></canvas>
+        </section>
 
-    <section class="chart-card">
-        <h3>Voluntários por mês</h3>
-        <canvas id="chart-voluntarios" width="400" height="300" aria-label="Gráfico de linha voluntários ao longo do tempo" role="img"></canvas>
-    </section>
 
-    <section>
-        <h3>Doações e Gastos</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Mês</th>
-                    <th>Doações recebidas (R$)</th>
-                    <th>Gastos (R$)</th>
-                    <th>Saldo (R$)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Janeiro</td>
-                    <td>5.000</td>
-                    <td>3.200</td>
-                    <td>1.800</td>
-                </tr>
-                <tr>
-                    <td>Fevereiro</td>
-                    <td>4.500</td>
-                    <td>2.700</td>
-                    <td>1.800</td>
-                </tr>
-                <tr>
-                    <td>Março</td>
-                    <td>6.000</td>
-                    <td>4.000</td>
-                    <td>2.000</td>
-                </tr>
-            </tbody>
-        </table>
-        <a href="#" class="btn">Baixar relatório completo (PDF)</a>
-    </section>
+        <section class="chart-card">
+            <h3>Voluntários Ativos ao longo do ano</h3>
+            <canvas id="chart-voluntarios" width="400" height="300" aria-label="Gráfico de linha voluntários ao longo do tempo" role="img"></canvas>
+        </section>
+
+        <section>
+            <h2>Balanço Financeiro Resumido</h2>
+            <p>Confira o balanço trimestral de Doações e Gastos.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th>Doações recebidas (R$)</th>
+                        <th>Gastos (R$)</th>
+                        <th>Saldo (R$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Janeiro</td>
+                        <td>5.000</td>
+                        <td>3.200</td>
+                        <td>1.800</td>
+                    </tr>
+                    <tr>
+                        <td>Fevereiro</td>
+                        <td>4.500</td>
+                        <td>2.700</td>
+                        <td>1.800</td>
+                    </tr>
+                    <tr>
+                        <td>Março</td>
+                        <td>6.000</td>
+                        <td>4.000</td>
+                        <td>2.000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align:center;">
+                <a href="#" class="btn btn-principal">Baixar relatório completo (PDF)</a>
+            </div>
+        </section>
+    </div>
 
 </main>
 
 <footer>
-    <p>&copy; <span id="ano"></span> Luyon. Todos os direitos reservados.</p>
+    <p>&copy; <span id="ano-footer"></span> Luyon. Todos os direitos reservados.</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
 </footer>
 
 <script>
-    document.getElementById('ano').textContent = new Date().getFullYear();
+    document.getElementById('ano-footer').textContent = new Date().getFullYear();
 
-    // Gráfico de pizza - Recursos
-    const ctxRecursos = document.getElementById('chart-recursos').getContext('2d');
-    new Chart(ctxRecursos, {
-        type: 'pie',
-        data: {
-            labels: ['Projeto A', 'Projeto B', 'Projeto C'],
-            datasets: [{
-                data: [5000, 3000, 2000],
-                backgroundColor: ['#0077cc', '#00a3cc', '#00cc77']
-            }]
-        },
-        options: { responsive: true }
+    let recursosChart; // Variável para armazenar a instância do gráfico
+    
+    // Dados para os gráficos
+    const dataPie = {
+        labels: ['Oficina de Pintura', 'Teatro Comunitário', 'Música para Todos', 'Apoio Administrativo'],
+        datasets: [{
+            data: [5000, 3000, 2000, 2500],
+            backgroundColor: ['#0077cc', '#ff9900', '#24b36b', '#999999'] 
+        }]
+    };
+
+    const dataBar = {
+        labels: ['Materiais Artísticos', 'Salários Monitores', 'Aluguel Espaço', 'Marketing/Captação'],
+        datasets: [{
+            label: 'Gastos por Categoria (R$)',
+            data: [4000, 5000, 3500, 1500],
+            backgroundColor: '#0077cc', 
+        }]
+    };
+
+    function renderRecursosChart(type, data) {
+        if (recursosChart) {
+            recursosChart.destroy(); // Destrói o gráfico anterior
+        }
+        const ctxRecursos = document.getElementById('chart-recursos').getContext('2d');
+        recursosChart = new Chart(ctxRecursos, {
+            type: type,
+            data: data,
+            options: { 
+                responsive: true,
+                plugins: { legend: { position: type === 'pie' ? 'right' : 'top' } }
+            }
+        });
+    }
+
+    function toggleChart(type) {
+        const pieBtn = document.getElementById('toggle-pie');
+        const barBtn = document.getElementById('toggle-bar');
+
+        if (type === 'pie') {
+            renderRecursosChart('pie', dataPie);
+            pieBtn.classList.add('active');
+            barBtn.classList.remove('active');
+        } else if (type === 'bar') {
+            renderRecursosChart('bar', dataBar);
+            barBtn.classList.add('active');
+            pieBtn.classList.remove('active');
+        }
+    }
+
+    // Inicialização dos Gráficos
+    document.addEventListener('DOMContentLoaded', () => {
+        // Inicializa o primeiro gráfico de recursos como Pie
+        renderRecursosChart('pie', dataPie); 
+        
+        // Gráfico de linha - Voluntários (Mantido simples)
+        const ctxVoluntarios = document.getElementById('chart-voluntarios').getContext('2d');
+        new Chart(ctxVoluntarios, {
+            type: 'line',
+            data: {
+                labels: ['Jan','Fev','Mar','Abr','Mai','Jun'],
+                datasets: [{
+                    label: 'Voluntários Ativos',
+                    data: [12, 15, 18, 20, 22, 25],
+                    borderColor: '#ff9900', // Laranja de destaque para a linha
+                    backgroundColor: 'rgba(255,153,0,0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: { responsive: true }
+        });
     });
 
-    // Gráfico de linha - Voluntários
-    const ctxVoluntarios = document.getElementById('chart-voluntarios').getContext('2d');
-    new Chart(ctxVoluntarios, {
-        type: 'line',
-        data: {
-            labels: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho'],
-            datasets: [{
-                label: 'Voluntários',
-                data: [12, 15, 18, 20, 22, 25],
-                borderColor: '#0077cc',
-                backgroundColor: 'rgba(0,119,204,0.2)',
-                fill: true,
-                tension: 0.4
-            }]
-        },
-        options: { responsive: true }
-    });
 </script>
 
 </body>

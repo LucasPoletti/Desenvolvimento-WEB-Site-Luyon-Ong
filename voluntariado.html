@@ -4,46 +4,57 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luyon — Voluntariado</title>
+<link rel="stylesheet" href="style.css"> 
 <style>
-    *, *:before, *:after { box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; line-height: 1.6; word-break: break-word; }
-
-    header { background-color: #f7f7f7; padding: 15px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    header h1 { margin: 0; font-size: 2em; color: #333; }
-    nav ul { list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; justify-content: center; flex-wrap: wrap; }
-    nav li { margin: 0 10px; }
-    nav a { text-decoration: none; color: #ff9900; font-weight: bold; font-size: 1em; transition: color 0.3s; }
-    nav a:hover, nav a.active { color: #e68a00; }
-
-    .hero { background-color: #0077cc; color: #fff; padding: 80px 20px; text-align: center; }
-    .hero h1 { font-size: 3em; margin-bottom: 20px; }
-    .hero p { font-size: 1.2em; margin-bottom: 30px; }
-
-    .btn { display: inline-block; padding: 12px 25px; background-color: #ff9900; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 1em; margin-top: 10px; transition: background 0.3s; }
-    .btn:hover { background-color: #e68a00; }
-
-    .container { width: 90%; max-width: 1200px; margin: 40px auto; }
-    h2 { text-align: center; margin-bottom: 25px; }
-
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; }
-    .card h3 { margin-top: 0; }
-    .card p { margin-bottom: 15px; }
-
-    .card button { width: 100%; }
-
-    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; padding: 15px; }
-    .modal-content { background-color: #fff; padding: 20px; max-width: 500px; border-radius: 8px; text-align: left; position: relative; }
-    .close-btn { position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5em; font-weight: bold; }
-    .modal-content img { width: 100%; margin-bottom: 10px; border-radius: 5px; }
-
-    footer { background-color: #eee; padding: 15px 0; text-align: center; }
-    footer p { margin: 5px 0; }
-    footer nav ul { justify-content: center; list-style: none; padding: 0; display: flex; gap: 15px; }
-    footer nav a { text-decoration: none; color: #333; transition: color 0.3s; }
-    footer nav a:hover { color: #0077cc; }
+    /* Estilos Específicos para o Modal (Pop-up) */
+    .modal { 
+        display: none; 
+        position: fixed; 
+        z-index: 1000; 
+        left: 0; 
+        top: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0,0,0,0.6); 
+        justify-content: center; 
+        align-items: center; 
+        padding: 15px; 
+    }
+    .modal-content { 
+        background-color: var(--branco); 
+        padding: 25px; /* Aumentei um pouco o padding */
+        max-width: 500px; 
+        border-radius: var(--radius); /* Usando a variável de raio */
+        text-align: left; 
+        position: relative; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra para destacar */
+    }
+    .modal-content h3 { 
+        color: var(--primaria); 
+        margin-top: 0; 
+        margin-bottom: 15px;
+    }
+    .close-btn { 
+        position: absolute; 
+        top: 10px; 
+        right: 20px; 
+        cursor: pointer; 
+        font-size: 1.8em; /* Aumentei o tamanho */
+        font-weight: normal; 
+        color: var(--texto);
+        transition: color 0.2s;
+    }
+    .close-btn:hover {
+        color: var(--erro);
+    }
+    .modal-content img { 
+        width: 100%; 
+        margin-bottom: 15px; 
+        border-radius: 8px; 
+    }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -56,13 +67,14 @@
             <li><a href="voluntariado.html" class="active">Voluntariado</a></li>
             <li><a href="doacoes.html">Doações</a></li>
             <li><a href="transparencia.html">Transparência</a></li>
-            <li><a href="admin-login.html">Área Administrativa</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contato.html">Contato</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="hero">
-    <h1>Participe e transforme vidas</h1>
+    <h2>Participe e transforme vidas</h2>
     <p>Conheça nossos projetos de voluntariado e faça a diferença na vida de crianças e jovens.</p>
 </section>
 
@@ -73,18 +85,18 @@
         <div class="cards">
             <div class="card">
                 <h3>Oficina de Pintura</h3>
-                <p>Aulas semanais de pintura e desenho para crianças de 7 a 12 anos.</p>
-                <button class="btn" onclick="openModal('modal-pintura')">Saiba mais</button>
+                <p>Aulas semanais de pintura e desenho para crianças de 7 a 12 anos. Estimule a criatividade!</p>
+                <button class="btn btn-principal" onclick="openModal('modal-pintura')">Saiba mais</button>
             </div>
             <div class="card">
                 <h3>Teatro Comunitário</h3>
-                <p>Projeto de teatro voltado a jovens de 13 a 18 anos, desenvolvendo habilidades de comunicação.</p>
-                <button class="btn" onclick="openModal('modal-teatro')">Saiba mais</button>
+                <p>Projeto de teatro voltado a jovens de 13 a 18 anos, desenvolvendo habilidades de comunicação e expressão.</p>
+                <button class="btn btn-principal" onclick="openModal('modal-teatro')">Saiba mais</button>
             </div>
             <div class="card">
                 <h3>Música para Todos</h3>
-                <p>Oficinas de música, canto e instrumentos para crianças e jovens.</p>
-                <button class="btn" onclick="openModal('modal-musica')">Saiba mais</button>
+                <p>Oficinas de música, canto e instrumentos para crianças e jovens. Promova inclusão social.</p>
+                <button class="btn btn-principal" onclick="openModal('modal-musica')">Saiba mais</button>
             </div>
         </div>
     </section>
@@ -94,18 +106,23 @@
         <div class="cards">
             <div class="card">
                 <h3>Oficina de Escultura</h3>
-                <p>Projeto futuro para ensinar técnicas básicas de escultura e modelagem artística.</p>
+                <p>Projeto futuro para ensinar técnicas básicas de escultura e modelagem artística (Aguardando captação de recursos).</p>
+            </div>
+            <div class="card">
+                <h3>Reforço Escolar</h3>
+                <p>Oferecer aulas de reforço em Português e Matemática para alunos do ensino fundamental (Busca por voluntários).</p>
             </div>
         </div>
     </section>
 
     <section class="section" style="text-align:center;">
-        <a href="cadastro.html" class="btn">Quero ser voluntário</a>
+        <h2>Dê o Próximo Passo</h2>
+        <p>Preencha nosso formulário de cadastro e comece a transformar vidas hoje mesmo!</p>
+        <a href="cadastro.html" class="btn btn-principal">Quero ser voluntário</a>
     </section>
 
 </main>
 
-<!-- Modais -->
 <div id="modal-pintura" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal('modal-pintura')">&times;</span>
@@ -135,6 +152,12 @@
 
 <footer>
     <p>&copy; <span id="ano"></span> Luyon. Todos os direitos reservados.</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
 </footer>
 
 <script>

@@ -1,48 +1,19 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luyon — Tudo é Possível</title>
-<style>
-    *, *:before, *:after { box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; line-height: 1.6; word-break: break-word; }
-    
-    header { background-color: #f7f7f7; padding: 15px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    header h1 { margin: 0; font-size: 2em; color: #333; }
-    nav ul { list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; justify-content: center; flex-wrap: wrap; }
-    nav li { margin: 0 10px; }
-    nav a { text-decoration: none; color: #ff9900; font-weight: bold; font-size: 1em; transition: color 0.3s; }
-    nav a:hover { color: #e68a00; }
-
-    .hero { background-color: #0077cc; color: #fff; padding: 20px 20px; text-align: center; }
-    .hero h1 { font-size: 3em; margin-bottom: 20px; }
-    .hero p { font-size: 1.2em; margin-bottom: 30px; }
-    .btn { display: inline-block; padding: 12px 25px; background-color: #ff9900; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 1em; margin-top: 10px; }
-    .btn:hover { background-color: #e68a00; }
-
-    .container { width: 90%; max-width: 1200px; margin: 40px auto; }
-    h2 { text-align: center; margin-bottom: 25px; }
-    .section { margin-bottom: 60px; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .card h3 { margin-top: 0; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
-    .gallery img { width: 100%; border-radius: 8px; display: block; }
-    
-    footer { background-color: #eee; padding: 15px 0; text-align: center; }
-    footer p { margin: 5px 0; }
-    footer nav ul { justify-content: center; }
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyon — Tudo é Possível</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 
 <body>
 
 <header>
-     <h1>Luyon — Tudo é Possível</h1>
+    <h1>Luyon — Projetos Sociais</h1>
     <nav>
         <ul>
-            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html" class="active">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="projetos.html">Projetos</a></li>
             <li><a href="voluntariado.html">Voluntariado</a></li>
@@ -55,15 +26,14 @@
 </header>
 
 <section class="hero">
-    <h1>Juntos transformamos vidas</h1>
-    <p>Arte, música e teatro para crianças e jovens em situação de vulnerabilidade. Participe e faça a diferença!</p>
+    <h2>Arte e Propósito</h2>
+    <p>Conectando criatividade e impacto social. Promovemos o desenvolvimento de crianças e jovens em situação de vulnerabilidade. Participe e faça a diferença!</p>
 
-    <div style="margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-        <a href="projetos.html" class="btn">Projetos</a>
-        <a href="voluntariado.html" class="btn">Quero ser voluntário</a>
-        <a href="doacoes.html" class="btn">Quero doar</a>
-        <a href="transparencia.html" class="btn">Transparência</a>
-    </div>
+    <div class="hero-actions">
+        <a href="projetos.html" class="btn btn-hero">Projetos</a>
+        <a href="voluntariado.html" class="btn btn-hero">Quero ser voluntário</a>
+        <a href="doacoes.html" class="btn btn-hero">Quero doar</a>
+        </div>
 </section>
 
 <main class="container">
@@ -84,10 +54,16 @@
             </div>
         </div>
     </section>
+
+    <section class="section" style="text-align:center;">
+        <h2>Fale Conosco</h2>
+        <p>Tem dúvidas ou quer nos visitar? Entre em contato agora mesmo!</p>
+        <a href="contato.html" class="btn btn-principal">Ir para Contato</a>
+    </section>
 </main>
 
 <footer>
-    <p>© 2025 Luyon. Todos os direitos reservados.</p>
+    <p>© <span id="ano-footer"></span> Luyon. Todos os direitos reservados.</p>
     <nav>
         <ul>
             <li><a href="index.html">Início</a></li>
@@ -95,6 +71,10 @@
         </ul>
     </nav>
 </footer>
+
+<script>
+    document.getElementById('ano-footer').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

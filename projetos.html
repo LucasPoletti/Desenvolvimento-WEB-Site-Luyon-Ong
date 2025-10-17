@@ -4,61 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luyon — Projetos Sociais</title>
-<style>
-    *, *:before, *:after { box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0; line-height: 1.6; word-break: break-word; }
-
-    /* Cabeçalho e menu */
-    header { background-color: #f7f7f7; padding: 15px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-    header h1 { margin: 0; font-size: 2em; color: #333; }
-    nav ul { list-style: none; padding: 0; margin: 10px 0 0 0; display: flex; justify-content: center; flex-wrap: wrap; }
-    nav li { margin: 0 10px; }
-    nav a { text-decoration: none; color: #ff9900; font-weight: bold; font-size: 1em; transition: color 0.3s; }
-    nav a:hover { color: #e68a00; }
-
-    /* Hero */
-    .hero { background-color: #0077cc; color: #fff; padding: 60px 20px; text-align: center; }
-    .hero h1 { font-size: 2.5em; margin-bottom: 15px; }
-    .hero p { font-size: 1.1em; margin-bottom: 20px; }
-
-    /* Botões */
-    .btn { display: inline-block; padding: 12px 25px; background-color: #ff9900; color: #fff; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-size: 1em; margin-top: 10px; transition: background-color 0.3s; }
-    .btn:hover { background-color: #e68a00; }
-
-    /* Conteúdo */
-    .container { width: 90%; max-width: 1200px; margin: 40px auto; }
-    h2 { text-align: center; margin-bottom: 25px; }
-    .section { margin-bottom: 60px; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-    .card h3 { margin-top: 0; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
-    .gallery img { width: 100%; border-radius: 8px; display: block; }
-    
-    /* Modais */
-    .modal { display: none; position: fixed; z-index: 1000; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
-    .modal-content { background-color: #fff; padding: 20px; max-width: 500px; border-radius: 8px; text-align: left; }
-    .modal-content img { width: 100%; margin-bottom: 10px; border-radius: 5px; }
-    .close-btn { float:right; cursor:pointer; font-size:1.2em; font-weight:bold; }
-
-    /* Outros projetos */
-    .secondary-projects .proj { background-color: #fff; padding: 10px 15px; margin: 5px 0; border-radius:5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-
-    footer { background-color: #eee; padding: 15px 0; text-align: center; }
-    footer p { margin: 5px 0; }
-    footer nav ul { justify-content: center; }
-</style>
+<link rel="stylesheet" href="style.css"> 
 </head>
 
 <body>
 
 <header>
-  <h1>Luyon — Tudo é Possível</h1>
+  <h1>Luyon — Projetos Sociais</h1>
   <nav>
     <ul>
       <li><a href="index.html">Início</a></li>
       <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="projetos.html" class="active">Projetos</a></li>
       <li><a href="voluntariado.html">Voluntariado</a></li>
       <li><a href="doacoes.html">Doações</a></li>
       <li><a href="transparencia.html">Transparência</a></li>
@@ -69,54 +26,55 @@
 </header>
 
 <section class="hero">
-  <h1>Projetos Sociais</h1>
-  <p>Conheça nossos projetos que transformam vidas de crianças e jovens.</p>
+  <h2>Nossos Projetos Transformadores</h2>
+  <p>Conheça as iniciativas que promovem arte, educação e desenvolvimento para crianças e jovens da nossa comunidade. Cada projeto é uma semente plantada.</p>
+  
+  <div class="hero-actions">
+    <a class="btn btn-hero" href="cadastro.html">Quero ser voluntário</a>
+    <a class="btn btn-hero" href="doacoes.html">Quero doar</a>
+  </div>
 </section>
 
 <main class="container">
 
-  <!-- Projetos em destaque -->
   <section class="section">
-    <h2>Projetos em Destaque</h2>
+    <h2>Iniciativas Ativas</h2>
     <div class="cards">
       <div class="card">
         <h3>Cores do Amanhã</h3>
-        <p>Oficinas de pintura, colagem e expressão artística para crianças, fomentando autoestima e criatividade.</p>
-        <img  src="Imagems/Cores da Vida.jpeg" alt="Crianças pintando um mural colorido">
-        
-        <a class="btn" href="contato.html">Mais Informações</a>
+        <p>Oficinas de pintura, colagem e expressão artística para crianças de 5 a 12 anos, fomentando autoestima e criatividade.</p>
+        <img src="images/CoresdaVida.jpeg" alt="Crianças pintando um mural colorido durante a oficina Cores do Amanhã">
+        <a class="btn btn-principal" href="contato.html">Saber Mais</a>
       </div>
       <div class="card">
         <h3>Som das Ruas</h3>
-        <p>Projeto de musicalização com instrumentos reciclados, explorando ritmos urbanos e expressão juvenil.</p>
-        <button class="btn" onclick="openModal('modal-som')">Saiba mais</button>
+        <p>Projeto de musicalização com instrumentos reciclados, explorando ritmos urbanos e promovendo a expressão e disciplina juvenil.</p>
+        <img src="images/sonsdarua.webp" alt="Crianças tocando instrumentos musicais feitos de materiais reciclados, Som das Ruas">
+        <a class="btn btn-principal" href="contato.html">Saber Mais</a>
       </div>
       <div class="card">
         <h3>Palco Aberto</h3>
-        <p>Espaço para apresentações de jovens em poesia, teatro e dança, promovendo visibilidade e prática artística.</p>
-        <button class="btn" onclick="openModal('modal-palco')">Saiba mais</button>
+        <p>Espaço para apresentações de jovens em poesia, teatro e dança, promovendo visibilidade, prática artística e superação da timidez.</p>
+        <img src="images/paucoaberto.webp" alt="Jovens se apresentando em um palco ao ar livre, Palco Aberto">
+        <a class="btn btn-principal" href="contato.html">Saber Mais</a>
       </div>
     </div>
   </section>
 
-  <!-- Outros projetos -->
-  <section class="secondary-projects section">
-    <h2>Outros projetos em desenvolvimento</h2>
-    <div class="proj"><strong>Oficina Digital</strong> — oficinas de lógica e arte digital para jovens aprenderem programação criativa.</div>
-    <div class="proj"><strong>Palco Jovem</strong> — módulos de teatro e expressão corporal para adolescentes da comunidade.</div>
-    <div class="proj"><strong>Retratos da Comunidade</strong> — fotografia social com meninas e meninos retratando o dia a dia local.</div>
-    <div class="proj"><strong>Vozes do Amanhã</strong> — produção de podcasts com relatos e histórias da juventude local.</div>
-    <div class="proj"><strong>Reciclar é Criar</strong> — arte feita com materiais recicláveis, despertando consciência ambiental.</div>
-    <div class="proj"><strong>Cinema na Praça</strong> — exibições de filmes educativos e debates comunitários sob as estrelas.</div>
-    <div class="proj"><strong>Arte em Movimento</strong> — oficinas de dança e movimento corporal em espaços públicos.</div>
+  <section class="section">
+    <h2>Próximos Projetos e Desenvolvimento</h2>
+    <div class="cards secondary-projects-grid">
+        <div class="card"><strong>Oficina Digital</strong> — oficinas de lógica e arte digital para jovens aprenderem programação criativa.</div>
+        <div class="card"><strong>Palco Jovem</strong> — módulos de teatro e expressão corporal para adolescentes da comunidade.</div>
+        <div class="card"><strong>Retratos da Comunidade</strong> — fotografia social com meninas e meninos retratando o dia a dia local.</div>
+        <div class="card"><strong>Vozes do Amanhã</strong> — produção de podcasts com relatos e histórias da juventude local.</div>
+        <div class="card"><strong>Reciclar é Criar</strong> — arte feita com materiais recicláveis, despertando consciência ambiental.</div>
+        <div class="card"><strong>Cinema na Praça</strong> — exibições de filmes educativos e debates comunitários sob as estrelas.</div>
+        <div class="card"><strong>Arte em Movimento</strong> — oficinas de dança e movimento corporal em espaços públicos.</div>
+    </div>
   </section>
 
-  <!-- Botão Quero ser Voluntário -->
-  <section style="text-align:center; margin:50px 0;">
-    <a class="btn" href="cadastro.html">Quero ser voluntário</a>
-  </section>
-
-</main>
+  </main>
 
 <footer>
   <p>© 2025 Luyon. Todos os direitos reservados.</p>
@@ -128,10 +86,5 @@
   </nav>
 </footer>
 
-<!-- Modais -->
-<div id="modal-cores" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('modal-cores')">&times;</span>
-    <h3>Cores do Amanhã</h3>
-    <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?w=800" alt="Oficina de arte">
-    <p>O projeto Cores do Aman
+</body>
+</html>
