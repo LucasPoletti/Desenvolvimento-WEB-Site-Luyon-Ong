@@ -1,143 +1,59 @@
-# 🌿 Luyon — Plataforma de Voluntariado e Projetos Sociais
+# 🌟 Luyon — Site Institucional para Projetos Sociais (ONG)
 
-Este projeto faz parte do desenvolvimento web voltado à criação de uma **plataforma de apoio a ONGs e voluntários**, com foco em **transparência, engajamento e impacto social**.  
-O site foi desenvolvido com **HTML5, CSS3 e JavaScript**, seguindo padrões de **acessibilidade, responsividade e boas práticas de usabilidade**.
+## Visão Geral do Projeto
 
----
+O Luyon é um site institucional desenvolvido para uma organização social fictícia focada em **transformar vidas de crianças e jovens** através de oficinas de arte, música e teatro.
 
-## 🚀 Estrutura do Projeto
+Este projeto foi construído com base nos fundamentos do Desenvolvimento Web, priorizando **estrutura semântica**, **acessibilidade** e **design responsivo** para garantir uma experiência de usuário limpa e moderna.
 
-O repositório está organizado da seguinte forma:
-
-📂 Desenvolvimento-WEB-Site-Luyon-Ong
-┣ 📂 assets
-┃ ┣ 📂 css
-┃ ┃ ┗ 📜 styles.css
-┃ ┣ 📂 js
-┃ ┃ ┗ 📜 scripts.js
-┃ ┗ 📂 images
-┃ ┗ 📜 (imagens otimizadas)
-┣ 📜 index.html
-┣ 📜 projetos.html
-┣ 📜 cadastro.html
-┗ 📜 README.md
-
-yaml
-Copiar código
+A identidade visual é consistente, utilizando as cores **Azul (`#0077cc`)** para confiança e **Laranja (`#ff9900`)** para destaque e ações (CTAs).
 
 ---
 
-## 🧭 Páginas Principais
+## 🚀 Funcionalidades Principais e Páginas
 
-### 🏠 **Home (index.html)**
-Apresenta a Luyon, sua missão, valores e chamada para ação (CTA) de voluntariado e apoio.
+O site é composto por páginas estáticas ricas em conteúdo e interatividade:
 
-### 💚 **Projetos (projetos.html)**
-Lista os projetos ativos da ONG, com informações, status e possibilidade de engajamento.
-
-### 📝 **Cadastro de Voluntário (cadastro.html)**
-Formulário com validações de:
-- CPF (com máscara)
-- Telefone (com máscara e verificação)
-- CEP (formatação automática)
-- Campos obrigatórios com alertas de erro e sucesso
-
----
-
-## 🧩 Funcionalidades Técnicas
-
-✅ **Validação de formulários em JavaScript**  
-✅ **Máscaras de entrada (CPF, telefone, CEP)**  
-✅ **Sistema de alertas visuais (erro/sucesso)**  
-✅ **Responsividade total (mobile-first)**  
-✅ **Menu adaptável (hambúrguer em telas pequenas)**  
-✅ **Otimização de assets (imagens comprimidas, lazy loading)**  
-✅ **Acessibilidade (WCAG 2.1 AA)**  
-✅ **Dark Mode e Alto Contraste**  
-✅ **Código modular (HTML / CSS / JS organizados em pastas)**
+| Página | Descrição | Destaques Técnicos |
+| :--- | :--- | :--- |
+| **`index.html`** | Página Inicial / Landing Page | Design unificado e chamadas de ação claras (Doar, Voluntariar). |
+| **`projetos.html`** | Detalhes sobre as oficinas (Pintura, Música, Teatro). | Uso de Grid Layouts e Cards estilizados. |
+| **`sobre.html`** | Missão, Visão, Valores e História da organização. | Estrutura semântica (`<section>`, `<h2>`) para clareza. |
+| **`cadastro.html`** | **Formulário Complexo de Voluntariado.** | Reúne todos os requisitos da atividade (campos de endereço, agrupamento lógico, validação robusta). |
+| **`contato.html`** | Formulário simples de contato e localização via Google Maps. | Validação de campo e mensagens de sucesso no topo. |
+| **`doacoes.html`** | Página para incentivar doações via PIX. | Botão de "Copiar PIX" funcional via JavaScript. |
+| **`transparencia.html`**| **Dashboard de Impacto e Finanças.** | Uso do Chart.js para gráficos interativos (Toggle Pie/Bar) e KPIs de impacto. |
+| **`blog.html`** | Notícias e histórias dos projetos. | Uso de Modals (pop-ups) para exibir o corpo completo das matérias (simulando um CMS). |
 
 ---
 
-## 🎨 Sistema de Design (CSS)
+## 🛠️ Tecnologias Utilizadas
 
-- **Paleta de Cores:**  
-  - Azul principal: `#0077B6`  
-  - Azul escuro: `#023E8A`  
-  - Azul claro: `#CAF0F8`  
-  - Branco: `#FFFFFF`  
-  - Preto: `#000000`
-
-- **Tipografia:**  
-  - Títulos: `Montserrat, sans-serif`  
-  - Corpo do texto: `Open Sans, sans-serif`
-
-- **Componentes:**  
-  - Botões com estados (`hover`, `active`, `disabled`)  
-  - Cards de projetos  
-  - Campos de formulário com feedback visual  
-  - Toasts e modais de confirmação  
+* **HTML5:** Estrutura semântica completa (`<header>`, `<main>`, `<section>`, `<footer>`).
+* **CSS3:** Estilização baseada em **Variáveis CSS (`:root`)** para manutenção centralizada, Layouts Flexbox e Grid para responsividade.
+* **JavaScript (JS Puro):**
+    * Máscaras de entrada para **CPF, Telefone e CEP**.
+    * Validação de formulários (campos vazios e checagem de formato de E-mail/Telefone).
+    * Lógica para Modals (pop-ups) e Dashboard Interativo (Toggle de gráficos).
+* **Chart.js:** Biblioteca para renderização dinâmica dos gráficos de dados na página de Transparência.
 
 ---
 
-## ⚙️ Requisitos Técnicos
+## ⚙️ Como Rodar o Projeto Localmente
 
-- HTML5 semântico  
-- CSS3 modular e responsivo  
-- JavaScript organizado por funcionalidade  
-- GitFlow com commits semânticos  
-- Repositório público no GitHub  
-- Estrutura otimizada para SEO e desempenho (< 5s de carregamento)
-
----
-
-## 👥 Personas e Casos de Uso
-
-### Personas
-- **Administrador da ONG:** gerencia projetos e voluntários.  
-- **Voluntário:** cadastra-se e acompanha ações sociais.  
-- **Doador:** apoia financeiramente e visualiza transparência.  
-- **Visitante:** conhece os projetos e o impacto social da Luyon.
-
-### Casos de Uso
-- Cadastrar novos voluntários.  
-- Exibir e atualizar projetos em andamento.  
-- Facilitar contato e engajamento com a ONG.  
-- Garantir navegação acessível e intuitiva.
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/LucasPoletti/Desenvolvimento-WEB-Site-Luyon-Ong.git](https://github.com/LucasPoletti/Desenvolvimento-WEB-Site-Luyon-Ong.git)
+    ```
+2.  **Abra a pasta:**
+    ```bash
+    cd Desenvolvimento-WEB-Site-Luyon-Ong
+    ```
+3.  **Abra o arquivo:**
+    Abra o arquivo `index.html` diretamente no seu navegador ou utilize a extensão "Live Server" no VS Code.
 
 ---
 
-## 📈 Requisitos de Entrega
+**Link do Projeto (GitHub Pages):**
 
-- ✅ Responsividade completa  
-- ✅ Formulário validado com máscaras  
-- ✅ Acessibilidade WCAG 2.1 AA  
-- ✅ SEO básico e meta tags configuradas  
-- ✅ Estrutura de pastas conforme especificações  
-- ✅ Publicação no GitHub com link público
-
----
-
-## 🧠 Conceito da Marca Luyon
-
-**Luyon** vem da ideia de *“brilhar e enxergar além do horizonte”*.  
-O projeto reflete os valores de **liberdade, propósito, arte, natureza e visão além do comum**.
-
----
-
-## 💡 Como Executar Localmente
-
-```bash
-# Clone este repositório
-git clone https://github.com/LucasPoletti/Desenvolvimento-WEB-Site-Luyon-Ong.git
-
-# Entre na pasta do projeto
-cd Desenvolvimento-WEB-Site-Luyon-Ong
-
-# Abra no navegador
-open index.html  # (macOS)
-# ou
-start index.html # (Windows)
-👨‍💻 Desenvolvido por
-Lucas Felipe Apollo Poletti
-Desenvolvimento Front-end — Projeto Luyon 🌿
-📧 Contato
+**(Insira aqui o link que será gerado pelo GitHub Pages)**
