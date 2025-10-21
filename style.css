@@ -45,6 +45,9 @@ header {
   padding: 15px 0;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  /* NOVO: NECESSÁRIO para posicionamento absoluto do botão hambúrguer no mobile */
+  position: relative; 
 }
 
 header h1 {
@@ -52,6 +55,40 @@ header h1 {
   font-size: 2em;
   color: var(--branco); /* Cor do Título para Branco */
 }
+
+/* NOVO: Estilos do Menu Hambúrguer (menu-toggle) */
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px; 
+    position: absolute; 
+    top: 15px;
+    right: 20px;
+    z-index: 1001; 
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--branco);
+    margin: 4px 0;
+    transition: transform 0.3s ease, opacity 0.3s;
+}
+
+/* Efeito de rotação para formar um 'X' ao abrir */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 
 nav ul {
   list-style: none;
@@ -362,5 +399,33 @@ footer nav a:hover {
     }
     .form-container {
         padding: 20px 15px;
+    }
+
+    /* NOVO: Estilos Mobile do Menu Hambúrguer */
+    .menu-toggle {
+        display: block; 
+    }
+
+    nav ul {
+        display: none; /* ESCONDE a lista por padrão no mobile */
+        flex-direction: column; 
+        width: 100%;
+        background-color: var(--primaria);
+        position: absolute;
+        left: 0;
+        top: 60px; 
+        padding: 16px 0; 
+        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+    
+    nav ul.open { /* Classe adicionada pelo JS */
+        display: flex; /* MOSTRA o menu */
+    }
+    
+    nav a {
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 0; 
     }
 }
