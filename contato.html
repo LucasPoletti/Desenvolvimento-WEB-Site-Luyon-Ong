@@ -56,11 +56,11 @@
             font-weight: bold;
             text-align: center;
             padding: 15px;
-            margin-bottom: 25px; /* Novo: Espaçamento abaixo da mensagem */
+            margin-bottom: 25px; 
             border-radius: 5px;
             background-color: rgba(36, 179, 107, 0.1); 
             border: 1px solid var(--sucesso);
-            display: none; /* Inicia oculto */
+            display: none; 
         }
     </style>
 </head>
@@ -69,7 +69,12 @@
 
 <header>
     <h1>Luyon — Contato</h1>
-    <nav>
+    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav id="main-nav">
         <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
@@ -173,6 +178,7 @@
 </script>
 
 <script src="mascaras.js"></script> 
+<script src="menu-toggle.js"></script>
 
 </body>
 </html>

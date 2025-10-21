@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Luyon — Galeria de Projetos</title>
-        <link rel="stylesheet" href="assets/css/styles.css" />
+        <link rel="stylesheet" href="style.css" />
         <style>
             /* Estilos básicos para grid e modal */
             .gallery-grid {
@@ -53,7 +53,12 @@
     <body>
         <header class="site-header">
             <h1>Luyon — Galeria de Projetos</h1>
-            <nav>
+            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="sobre.html">Sobre</a></li>
@@ -61,7 +66,8 @@
                     <li><a href="voluntariado.html">Voluntariado</a></li>
                     <li><a href="doacoes.html">Doações</a></li>
                     <li><a href="transparencia.html">Transparência</a></li>
-                    <li><a href="admin-login.html">Área Administrativa</a></li>
+                    <li><a href="blog.html">Blog</a></li> 
+                    <li><a href="contato.html">Contato</a></li>
                 </ul>
             </nav>
         </header>
@@ -72,7 +78,6 @@
                 <p>Explore todos os projetos da Luyon e veja como estamos transformando vidas através da arte:</p>
 
                 <div class="gallery-grid">
-                    <!-- Projeto 1: Oficina de Pintura -->
                     <figure class="gallery-item">
                         <img src="https://via.placeholder.com/400x300?text=Oficina+de+Pintura" 
                              alt="Crianças pintando" 
@@ -80,7 +85,6 @@
                         <figcaption>Oficina de Pintura</figcaption>
                     </figure>
 
-                    <!-- Projeto 2: Teatro Comunitário -->
                     <figure class="gallery-item">
                         <img src="https://via.placeholder.com/400x300?text=Teatro+Comunitario" 
                              alt="Apresentação de teatro" 
@@ -88,7 +92,6 @@
                         <figcaption>Teatro Comunitário</figcaption>
                     </figure>
 
-                    <!-- Projeto 3: Música para Todos -->
                     <figure class="gallery-item">
                         <img src="https://via.placeholder.com/400x300?text=Musica+para+Todos" 
                              alt="Aulas de música" 
@@ -96,8 +99,6 @@
                         <figcaption>Música para Todos</figcaption>
                     </figure>
 
-                    <!-- Podemos repetir imagens de exemplo para completar 20 itens -->
-                    <!-- Para simplificação aqui adicionamos mais imagens fictícias -->
                     <figure class="gallery-item">
                         <img src="https://via.placeholder.com/400x300?text=Projeto+4" alt="Projeto 4">
                         <figcaption>Projeto 4</figcaption>
@@ -106,11 +107,9 @@
                         <img src="https://via.placeholder.com/400x300?text=Projeto+5" alt="Projeto 5">
                         <figcaption>Projeto 5</figcaption>
                     </figure>
-                    <!-- ... continue até 20 -->
-                </div>
+                    </div>
             </section>
 
-            <!-- Reutilizando modais dos projetos principais -->
             <div id="modal-pintura" class="modal">
                 <div class="modal-content">
                     <span class="close-btn" onclick="closeModal('modal-pintura')">&times;</span>
@@ -154,5 +153,6 @@
                 document.getElementById(id).style.display = 'none';
             }
         </script>
+        <script src="menu-toggle.js"></script>
     </body>
 </html>
