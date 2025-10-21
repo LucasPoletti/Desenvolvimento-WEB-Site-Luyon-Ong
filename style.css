@@ -17,6 +17,14 @@
   /* Feedback */
   --erro: #ff4d4f;
   --sucesso: #24b36b;
+
+  /* NOVO: Espaçamento Modular (8px base) (Macro 2 - Requisito 23) */
+  --space-1x: 8px;
+  --space-2x: 16px;
+  --space-3x: 24px;
+  --space-4x: 32px;
+  --space-6x: 48px;
+  --space-8x: 64px;
 }
 
 /* ==========================
@@ -34,15 +42,15 @@ body {
   word-break: break-word;
 }
 
-/* Ajuste de Margem */
-p { margin-bottom: 15px; }
+/* Ajuste de Margem - Usando variável modular */
+p { margin-bottom: var(--space-2x); } 
 
 /* ==========================
    CABEÇALHO
 ========================== */
 header {
-  background-color: var(--primaria); /* Fundo Azul */
-  padding: 15px 0;
+  background-color: var(--primaria); 
+  padding: var(--space-2x) 0; /* Aplicando a variável */
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -50,35 +58,35 @@ header {
 header h1 {
   margin: 0;
   font-size: 2em;
-  color: var(--branco); /* Cor do Título para Branco */
+  color: var(--branco); 
 }
 
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 10px 0 0 0;
+  margin: var(--space-1x) 0 0 0; /* Aplicando a variável */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: var(--space-2x); /* Aplicando a variável */
 }
 
 nav li {
-  margin: 0 5px;
+  margin: 0 var(--space-1x); /* Aplicando a variável */
 }
 
 nav a {
   text-decoration: none;
-  color: var(--branco); /* Cor dos links do topo para Branco */
+  color: var(--branco); 
   font-weight: bold;
   font-size: 1em;
   transition: color 0.3s;
-  padding: 5px 10px;
+  padding: var(--space-1x) 10px; /* Aplicando a variável */
   border-radius: 5px;
 }
 
 nav a:hover, nav a.active { 
-    color: var(--destaque); /* Hover Laranja */
+    color: var(--destaque); 
 }
 
 
@@ -88,27 +96,27 @@ nav a:hover, nav a.active {
 .hero { 
   background-color: var(--branco); 
   color: var(--texto); 
-  padding: 40px 20px; 
+  padding: var(--space-4x) var(--space-3x); /* Aplicando a variável */
   text-align: center; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
 }
 .hero h2 { 
     font-size: 2.5em; 
-    margin-bottom: 15px; 
+    margin-bottom: var(--space-2x); 
 }
 .hero p { 
     font-size: 1.1em; 
-    margin-bottom: 25px; 
+    margin-bottom: var(--space-3x); 
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 .hero-actions {
-    margin-top: 30px; 
+    margin-top: var(--space-4x); 
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
-    gap: 15px;
+    gap: var(--space-2x);
 }
 
 /* ==========================
@@ -116,7 +124,7 @@ nav a:hover, nav a.active {
 ========================== */
 .btn { 
     display: inline-block; 
-    padding: 12px 25px; 
+    padding: 12px var(--space-3x); /* Aplicando a variável */
     border: none; 
     border-radius: var(--radius); 
     cursor: pointer; 
@@ -133,7 +141,7 @@ nav a:hover, nav a.active {
     color: var(--branco);
 }
 .btn-principal:hover, .btn-hero:hover { 
-    background-color: #e68a00; /* Laranja Escuro */
+    background-color: #e68a00; 
     color: var(--branco);
 }
 
@@ -144,30 +152,30 @@ nav a:hover, nav a.active {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: var(--space-4x) auto; /* Aplicando a variável */
+  padding: 0 var(--space-3x); /* Aplicando a variável */
 }
 
 h2 {
   text-align: center;
   color: var(--texto);
-  margin-bottom: 30px;
+  margin-bottom: var(--space-4x); /* Aplicando a variável */
   font-size: 1.8rem;
 }
 
 .section { 
-    margin-bottom: 50px; 
+    margin-bottom: var(--space-6x); /* Aplicando a variável */
 }
 
 /* Estilo para a seção Outros Projetos na página projetos.html */
 .secondary-projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
+    gap: var(--space-2x); /* Aplicando a variável */
 }
 .secondary-projects-grid .card {
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra mais leve */
+    padding: var(--space-2x); /* Aplicando a variável */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
     text-align: center;
     transition: none;
 }
@@ -183,11 +191,11 @@ h2 {
 .cards { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
+    gap: var(--space-3x); /* Aplicando a variável */
 }
 .card { 
     background-color: var(--branco); 
-    padding: 25px; 
+    padding: var(--space-3x); /* Aplicando a variável */
     border-radius: var(--radius); 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
     text-align: left; 
@@ -204,7 +212,7 @@ h2 {
     color: var(--primaria); 
     margin-top: 0; 
     font-size: 1.4rem;
-    margin-bottom: 10px;
+    margin-bottom: var(--space-1x); /* Aplicando a variável */
 }
 .card p {
     flex-grow: 1;
@@ -212,8 +220,8 @@ h2 {
 .card img {
     width: 100%;
     border-radius: 8px;
-    margin: 15px 0;
-    object-fit: cover; /* Garante que as imagens preencham o espaço no card */
+    margin: var(--space-2x) 0; /* Aplicando a variável */
+    object-fit: cover; 
 }
 
 
@@ -223,8 +231,8 @@ h2 {
 /* Contêiner de formulário (usado em cadastro.html) */
 .form-container {
   max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
+  margin: var(--space-4x) auto; /* Aplicando a variável */
+  padding: var(--space-4x); /* Aplicando a variável */
   background: var(--branco); 
   border-radius: var(--radius);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
@@ -233,21 +241,21 @@ h2 {
 /* Títulos de seção dentro do formulário */
 form h3 {
     color: var(--primaria);
-    margin-top: 30px;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
+    margin-top: var(--space-4x); /* Aplicando a variável */
+    margin-bottom: var(--space-2x); /* Aplicando a variável */
+    padding-bottom: var(--space-1x); /* Aplicando a variável */
     border-bottom: 1px solid var(--secundaria);
     font-size: 1.2rem;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-3x); /* Aplicando a variável */
     position: relative; 
 }
 
 label {
     display: block;
-    margin: 15px 0 5px; 
+    margin: var(--space-2x) 0 var(--space-1x); /* Aplicando a variável */
     font-weight: bold;
     color: var(--texto);
 }
@@ -281,7 +289,7 @@ textarea {
 .checkbox-group, .availability-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: var(--space-2x); /* Aplicando a variável */
 }
 .checkbox-group label, .availability-group label {
     display: inline-flex;
@@ -293,7 +301,7 @@ textarea {
 }
 .checkbox-group input[type="checkbox"], .availability-group input[type="checkbox"] {
     width: auto;
-    margin-right: 5px;
+    margin-right: var(--space-1x); /* Aplicando a variável */
 }
 
 /* Mensagens de Erro */
@@ -301,7 +309,7 @@ textarea {
   color: var(--erro);
   font-size: 0.85rem;
   display: none; 
-  margin-top: 5px;
+  margin-top: var(--space-1x); /* Aplicando a variável */
   font-weight: normal;
 }
 
@@ -311,8 +319,8 @@ textarea {
   font-size: 1.1rem;
   font-weight: bold;
   text-align: center;
-  padding: 15px;
-  margin-top: 30px;
+  padding: var(--space-2x); /* Aplicando a variável */
+  margin-top: var(--space-4x); /* Aplicando a variável */
   border-radius: 5px;
   background-color: rgba(36, 179, 107, 0.1); 
   border: 1px solid var(--sucesso);
@@ -325,16 +333,16 @@ textarea {
 ========================== */
 footer { 
     background-color: var(--secundaria); 
-    padding: 15px 0; 
+    padding: var(--space-2x) 0; /* Aplicando a variável */
     text-align: center; 
-    margin-top: 40px;
+    margin-top: var(--space-4x); /* Aplicando a variável */
 }
 footer p { 
-    margin: 5px 0; 
+    margin: var(--space-1x) 0; /* Aplicando a variável */
 }
 footer nav ul { 
     justify-content: center; 
-    margin-top: 5px;
+    margin-top: var(--space-1x); /* Aplicando a variável */
 }
 footer nav a {
     color: var(--texto);
@@ -346,10 +354,12 @@ footer nav a:hover {
 
 /* ==========================
    MEDIA QUERIES (Responsividade)
+   NOVO: 5 Pontos de Interrupção Implementados (Macro 2)
 ========================== */
+/* Ponto de Interrupção 1: Mobile (max-width: 600px) */
 @media (max-width: 600px) {
     .hero {
-        padding: 30px 15px;
+        padding: var(--space-4x) var(--space-2x);
     }
     .hero h2 {
         font-size: 2em;
@@ -361,6 +371,42 @@ footer nav a:hover {
         width: 100%;
     }
     .form-container {
-        padding: 20px 15px;
+        padding: var(--space-3x) var(--space-2x);
+    }
+}
+
+/* Ponto de Interrupção 2: Tablets/Small Desktops (min-width: 768px) */
+@media (min-width: 768px) {
+    /* Ajuste para o menu de navegação em telas maiores */
+    header nav ul {
+        gap: var(--space-3x);
+    }
+    /* Permite que os cards de Missão/Visão/Valores fiquem menores em 3 colunas */
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Ponto de Interrupção 3: Desktops Médios (min-width: 992px) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 1000px;
+    }
+    .hero h2 {
+        font-size: 3em; 
+    }
+}
+
+/* Ponto de Interrupção 4: Desktops Grandes (min-width: 1200px) */
+@media (min-width: 1200px) {
+     .container {
+        max-width: 1150px;
+    }
+}
+
+/* Ponto de Interrupção 5: Wide Screens (min-width: 1400px) */
+@media (min-width: 1400px) {
+     .container {
+        max-width: 1300px;
     }
 }
