@@ -59,7 +59,12 @@
 
 <header>
     <h1>Luyon — Voluntariado</h1>
-    <nav>
+    <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav id="main-nav">
         <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
@@ -171,6 +176,7 @@
         document.getElementById(id).style.display = 'none';
     }
 </script>
+<script src="menu-toggle.js"></script>
 
 </body>
 </html>
