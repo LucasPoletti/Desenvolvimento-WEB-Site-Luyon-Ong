@@ -2,40 +2,38 @@
 
 ## Visão Geral do Projeto
 
-O Luyon é um site institucional desenvolvido para uma organização social fictícia focada em **transformar vidas de crianças e jovens** através de oficinas de arte, música e teatro.
+O Luyon é um site institucional desenvolvido para uma organização social fictícia focada em transformar vidas através da arte. O projeto demonstra o domínio dos fundamentos web, design responsivo, e uma arquitetura moderna.
 
-Este projeto foi construído com base nos fundamentos do Desenvolvimento Web, priorizando **estrutura semântica**, **acessibilidade** e **design responsivo** para garantir uma experiência de usuário limpa e moderna.
-
-A identidade visual é consistente, utilizando as cores **Azul (`#0077cc`)** para confiança e **Laranja (`#ff9900`)** para destaque e ações (CTAs).
+**Arquitetura:** O projeto utiliza uma arquitetura **Single Page Application (SPA)** para a maioria das páginas de conteúdo estático (`Início`, `Sobre`, `Projetos`, `Voluntariado`, `Blog`), garantindo navegação rápida e sem recarga. Páginas com alta interatividade ou APIs de segurança (`Doações`, `Transparência`) foram mantidas como Multi-Página para garantir 100% de funcionalidade.
 
 ---
 
 ## 🚀 Funcionalidades Principais e Páginas
 
-O site é composto por páginas estáticas ricas em conteúdo e interatividade:
+O site é composto por páginas com estrutura modular:
 
-| Página | Descrição | Destaques Técnicos |
+| Página | Arquitetura | Destaques Técnicos |
 | :--- | :--- | :--- |
-| **`index.html`** | Página Inicial / Landing Page | Design unificado e chamadas de ação claras (Doar, Voluntariar). |
-| **`projetos.html`** | Detalhes sobre as oficinas (Pintura, Música, Teatro). | Uso de Grid Layouts e Cards estilizados. |
-| **`sobre.html`** | Missão, Visão, Valores e História da organização. | Estrutura semântica (`<section>`, `<h2>`) para clareza. |
-| **`cadastro.html`** | **Formulário Complexo de Voluntariado.** | Reúne todos os requisitos da atividade (campos de endereço, agrupamento lógico, validação robusta). |
-| **`contato.html`** | Formulário simples de contato e localização via Google Maps. | Validação de campo e mensagens de sucesso no topo. |
-| **`doacoes.html`** | Página para incentivar doações via PIX. | Botão de "Copiar PIX" funcional via JavaScript. |
-| **`transparencia.html`**| **Dashboard de Impacto e Finanças.** | Uso do Chart.js para gráficos interativos (Toggle Pie/Bar) e KPIs de impacto. |
-| **`blog.html`** | Notícias e histórias dos projetos. | Uso de Modals (pop-ups) para exibir o corpo completo das matérias (simulando um CMS). |
+| **`index.html`** | SPA Shell | Ponto de entrada que carrega todo o conteúdo via JavaScript. |
+| **`sobre.html`** | SPA Módulo | Conteúdo enriquecido com linha do tempo e propósito. |
+| **`projetos.html`** | SPA Módulo | Uso de Grid Layouts e Cards estilizados para exibir iniciativas. |
+| **`voluntariado.html`** | SPA Módulo | Utiliza **Modals** para descrição de projetos (Lógica em `modals.js`). |
+| **`doacoes.html`** | Multi-Página | Implementa a funcionalidade **"Copiar Chave PIX"** de forma síncrona (Lógica em `pix-copy.js`). |
+| **`transparencia.html`**| Multi-Página | Dashboard de impacto utilizando a biblioteca **Chart.js** para gráficos interativos. |
+| **`blog.html`** | SPA Módulo | Uso de Modals para exibição do corpo das matérias. |
+| **`cadastro.html`** | Multi-Página | **Formulário Completo de Voluntariado** com validação robusta. |
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas (Macro 2 e Macro 3)
 
-* **HTML5:** Estrutura semântica completa (`<header>`, `<main>`, `<section>`, `<footer>`).
-* **CSS3:** Estilização baseada em **Variáveis CSS (`:root`)** para manutenção centralizada, Layouts Flexbox e Grid para responsividade.
+* **HTML5:** Estrutura semântica completa e acessível.
+* **CSS3:** Sistema de design baseado em **Variáveis CSS (`:root`)**, Layouts Flexbox e Grid para responsividade (5 Pontos de Interrupção).
 * **JavaScript (JS Puro):**
-    * Máscaras de entrada para **CPF, Telefone e CEP**.
-    * Validação de formulários (campos vazios e checagem de formato de E-mail/Telefone).
-    * Lógica para Modals (pop-ups) e Dashboard Interativo (Toggle de gráficos).
-* **Chart.js:** Biblioteca para renderização dinâmica dos gráficos de dados na página de Transparência.
+    * **SPA (Single Page Application):** Lógica de roteamento (`spa.js`) para carregar módulos (`*-content.html`).
+    * **Validação/Máscaras:** Implementação de máscaras para **CPF, Telefone e CEP** (em `mascaras.js`).
+    * **Funcionalidades Modulares:** `modals.js` (pop-ups), `pix-copy.js` (cópia síncrona).
+* **Chart.js:** Biblioteca externa para renderização dinâmica dos gráficos na página de Transparência.
 
 ---
 
@@ -43,14 +41,9 @@ O site é composto por páginas estáticas ricas em conteúdo e interatividade:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/LucasPoletti/Desenvolvimento-WEB-Site-Luyon-Ong.git](https://github.com/LucasPoletti/Desenvolvimento-WEB-Site-Luyon-Ong.git)
+    git clone [INSERIR O LINK DO SEU REPOSITÓRIO]
     ```
-2.  **Abra a pasta:**
-    ```bash
-    cd Desenvolvimento-WEB-Site-Luyon-Ong
-    ```
-3.  **Abra o arquivo:**
-    Abra o arquivo `index.html` diretamente no seu navegador ou utilize a extensão "Live Server" no VS Code.
+2.  **Inicie o Servidor:** Use a extensão "Live Server" no VS Code (clique com o botão direito em `index.html` e selecione **Open with Live Server**).
 
 ---
 
