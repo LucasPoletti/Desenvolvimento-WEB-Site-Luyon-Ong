@@ -53,13 +53,7 @@ header {
   padding: var(--space-2x) 0; /* Aplicando a variável */
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
-  
-  /* NOVO: NECESSÁRIO para posicionamento absoluto do botão hambúrguer no mobile */
-  position: relative; 
-=======
   /* REVERTIDO: Removida a linha 'position: relative;' */
->>>>>>> feature/implementa-spa-basico
 }
 
 header h1 {
@@ -401,7 +395,7 @@ footer nav a:hover {
 @media (max-width: 600px) {
     /* Demais ajustes mobile */
     .hero {
-        padding: var(--space-4x) var(--space-2x);
+        padding: 30px 15px;
     }
     .hero h2 {
         font-size: 2em;
@@ -413,71 +407,7 @@ footer nav a:hover {
         width: 100%;
     }
     .form-container {
-        padding: var(--space-3x) var(--space-2x);
-    }
-}
-
-/* Ponto de Interrupção 2: Tablets/Small Desktops (min-width: 768px) */
-@media (min-width: 768px) {
-    /* Ajuste para o menu de navegação em telas maiores */
-    header nav ul {
-        gap: var(--space-3x);
-    }
-    /* Permite que os cards de Missão/Visão/Valores fiquem menores em 3 colunas */
-    .cards {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-}
-
-/* Ponto de Interrupção 3: Desktops Médios (min-width: 992px) */
-@media (min-width: 992px) {
-    .container {
-        max-width: 1000px;
-    }
-    .hero h2 {
-        font-size: 3em; 
-    }
-}
-
-/* Ponto de Interrupção 4: Desktops Grandes (min-width: 1200px) */
-@media (min-width: 1200px) {
-     .container {
-        max-width: 1150px;
-    }
-}
-
-/* Ponto de Interrupção 5: Wide Screens (min-width: 1400px) */
-@media (min-width: 1400px) {
-     .container {
-        max-width: 1300px;
-    }
-
-    /* NOVO: Estilos Mobile do Menu Hambúrguer */
-    .menu-toggle {
-        display: block; 
-    }
-
-    nav ul {
-        display: none; /* ESCONDE a lista por padrão no mobile */
-        flex-direction: column; 
-        width: 100%;
-        background-color: var(--primaria);
-        position: absolute;
-        left: 0;
-        top: 60px; 
-        padding: 16px 0; 
-        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
-        text-align: left;
-    }
-    
-    nav ul.open { /* Classe adicionada pelo JS */
-        display: flex; /* MOSTRA o menu */
-    }
-    
-    nav a {
-        padding: 10px 20px;
-        width: 100%;
-        border-radius: 0; 
+        padding: 20px 15px;
     }
 }
 /* ==========================
