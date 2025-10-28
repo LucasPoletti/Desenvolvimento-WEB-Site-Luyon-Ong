@@ -41,7 +41,7 @@ O site é composto por páginas com estrutura modular:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [INSERIR O LINK DO SEU REPOSITÓRIO]
+    git clone [https://lucaspoletti.github.io/Desenvolvimento-WEB-Site-Luyon-Ong/index.html]
     ```
 2.  **Inicie o Servidor:** Use a extensão "Live Server" no VS Code (clique com o botão direito em `index.html` e selecione **Open with Live Server**).
 
@@ -49,4 +49,4 @@ O site é composto por páginas com estrutura modular:
 
 **Link do Projeto (GitHub Pages):**
 
-**(Insira aqui o link que será gerado pelo GitHub Pages)**
+https://lucaspoletti.github.io/Desenvolvimento-WEB-Site-Luyon-Ong/index.html
