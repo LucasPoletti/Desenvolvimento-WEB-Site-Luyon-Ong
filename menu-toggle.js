@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona o botão e a lista UL dentro da NAV (usando o ID)
+    // Seleciona o botão de sanduíche
     const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.getElementById('main-nav').querySelector('ul'); 
+    // Seleciona a lista de navegação (o que será aberto/fechado) dentro de #main-nav
+    const navMenu = document.getElementById('main-nav') ? document.getElementById('main-nav').querySelector('ul') : null; 
     
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {

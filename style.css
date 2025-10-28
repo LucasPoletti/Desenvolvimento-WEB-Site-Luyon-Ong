@@ -53,9 +53,13 @@ header {
   padding: var(--space-2x) 0; /* Aplicando a variável */
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
   
   /* NOVO: NECESSÁRIO para posicionamento absoluto do botão hambúrguer no mobile */
   position: relative; 
+=======
+  /* REVERTIDO: Removida a linha 'position: relative;' */
+>>>>>>> feature/implementa-spa-basico
 }
 
 header h1 {
@@ -395,6 +399,7 @@ footer nav a:hover {
 ========================== */
 /* Ponto de Interrupção 1: Mobile (max-width: 600px) */
 @media (max-width: 600px) {
+    /* Demais ajustes mobile */
     .hero {
         padding: var(--space-4x) var(--space-2x);
     }
@@ -474,4 +479,365 @@ footer nav a:hover {
         width: 100%;
         border-radius: 0; 
     }
+}
+/* ==========================
+   ESTILOS MENU HAMBÚRGUER (MACRO 2)
+========================== */
+header {
+    /* Adicione position: relative para que o botão flutue */
+    position: relative;
+    /* Manter o restante dos estilos do cabeçalho */
+    background-color: var(--primaria); 
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle {
+    display: none; /* Escondido por padrão em desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px; 
+    position: absolute; 
+    top: 15px;
+    right: 20px;
+    z-index: 1001; 
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--branco);
+    margin: 4px 0;
+    transition: transform 0.3s ease, opacity 0.3s;
+}
+
+/* Efeito de rotação para formar um 'X' ao abrir */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ==========================
+   ESTILOS ESPECÍFICOS: DOAÇÕES (PIX)
+========================== */
+.donation-card { 
+    background-color: var(--branco); /* Fundo branco para destacar */
+    padding: 25px; 
+    border-radius: var(--radius); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    margin-bottom: 25px; 
+    text-align: center; 
+    word-break: break-word; 
+    transition: transform 0.3s;
+}
+.donation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+.donation-card p {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--primaria); /* Destaque azul para o valor */
+    margin-bottom: 15px;
+}
+.pix-key { 
+    font-weight: bold; 
+    font-size: 1.1em; 
+    margin-top: 10px; 
+    display: block; 
+    word-break: break-word; 
+    color: var(--texto);
+}
+/* Ajuste no botão dentro do card de doação */
+.donation-card .btn-principal {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 0.95em;
+}
+
+/* ==========================
+   MEDIA QUERIES (Responsividade)
+   (O SEU BLOCO ANTIGO É COPIADO AQUI E ADICIONADO O CSS DO MENU MOBILE)
+========================== */
+@media (max-width: 600px) {
+    /* MOSTRAR o botão sanduíche no mobile */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    /* ESCONDER o menu em mobile (até que o JS adicione a classe 'open') */
+    nav ul {
+        display: none; 
+        flex-direction: column; 
+        width: 100%;
+        background-color: var(--primaria);
+        position: absolute;
+        left: 0;
+        top: 60px; 
+        padding: 16px 0; 
+        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+        text-align: center;
+        z-index: 1000;
+        margin: 0; 
+    }
+    
+    /* A classe 'open' (adicionada pelo JS) MOSTRA o menu */
+    nav ul.open { 
+        display: flex; 
+    }
+    
+    nav a {
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 0; 
+    }
+
+    /* Demais ajustes mobile (EXISTENTES NO SEU CÓDIGO) */
+    .hero {
+        padding: 30px 15px;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .hero-actions {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+    }
+    .form-container {
+        padding: 20px 15px;
+    }
+}
+/* ==========================
+   ESTILOS ESPECÍFICOS: TRANSPARÊNCIA (CHART/KPIs)
+========================== */
+.transparencia-container { 
+    max-width: 900px;
+    margin: 30px auto; 
+    padding: 25px; 
+    background-color: var(--branco); 
+    border-radius: var(--radius); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+.kpi-card {
+    background-color: var(--secundaria);
+    padding: 15px;
+    border-radius: var(--radius);
+    text-align: center;
+}
+.kpi-card .number {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--destaque);
+    line-height: 1.2;
+}
+.kpi-card .label {
+    font-size: 0.9em;
+    color: var(--texto);
+    margin-top: 5px;
+}
+
+.chart-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.chart-toggle button {
+    background-color: var(--primaria);
+    color: var(--branco);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+.chart-toggle button.active {
+    background-color: var(--destaque);
+    font-weight: bold;
+}
+.chart-toggle button:hover:not(.active) {
+    background-color: #005fa3;
+}
+
+.chart-card { 
+    margin-bottom: 30px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--secundaria);
+}
+.chart-card:last-child {
+    border-bottom: none;
+}
+
+canvas { 
+    max-height: 300px;
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+    background-color: var(--cinza-claro); 
+    border-radius: 8px; 
+    padding: 15px; 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-bottom: 30px; 
+}
+th { 
+    background-color: var(--primaria); 
+    color: var(--branco); 
+    padding: 10px;
+}
+td {
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    text-align: center; 
+}
+
+/* ==========================
+   ESTILOS ESPECÍFICOS: BLOG/NOTÍCIAS
+========================== */
+.blog-container { 
+    max-width: 900px; 
+    margin: 30px auto; 
+    padding: 25px; 
+    background-color: var(--branco); 
+    border-radius: var(--radius); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+.featured-card {
+    background-color: var(--primaria);
+    color: var(--branco);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.featured-card h3 {
+    color: var(--destaque);
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.featured-card p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+.blog-card { 
+    background-color: var(--secundaria); 
+    border-radius: var(--radius); 
+    padding: 20px; 
+    margin-bottom: 25px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s;
+}
+.blog-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.blog-card h3 { 
+    margin-top: 0; 
+    color: var(--primaria); 
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.blog-card p {
+    color: #555;
+}
+.blog-card .btn-leitura {
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    background-color: var(--destaque);
+    color: var(--branco);
+    cursor: pointer;
+}
+.blog-card .btn-leitura:hover {
+     background-color: #e68a00; 
+}
+/* Estilos para o Modal (Recomendado garantir que o estilo base do modal 
+   já esteja no CSS, mas ajustamos as regras específicas do Blog) */
+
+.modal-content { 
+    /* Max-width maior que o do Voluntariado para melhor leitura */
+    max-width: 700px; 
+}
+.modal-content h3 {
+    font-size: 2em;
+}
+.modal-body p {
+    margin-bottom: 1.5em;
+}
+/* ==========================
+   ESTILOS ESPECÍFICOS: CONTATO/MAPA
+========================== */
+.contact-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--branco);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--secundaria);
+}
+.contact-info div {
+    padding: 15px;
+    background: var(--secundaria);
+    border-radius: 8px;
+    text-align: center;
+}
+.contact-info h3 {
+    color: var(--primaria);
+    margin-top: 0;
+    font-size: 1.1em;
+}
+
+.map { 
+    width: 100%; 
+    height: 350px; 
+    border-radius: 8px; 
+    margin-top: 30px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.map iframe {
+    display: block;
+}
+
+/* Estilo para a mensagem de sucesso no topo do formulário (controlada pelo JS) */
+#successMessageContato {
+    color: var(--sucesso);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 25px; 
+    border-radius: 5px;
+    background-color: rgba(36, 179, 107, 0.1); 
+    border: 1px solid var(--sucesso);
+    display: none; 
 }

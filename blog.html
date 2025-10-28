@@ -6,110 +6,12 @@
     <title>Luyon — Blog e Notícias</title>
     <link rel="stylesheet" href="style.css">
     
-    <style>
-        /* [ ... MANTIDO: Estilos específicos do Blog ... ] */
-        .blog-container { 
-            max-width: 900px; 
-            margin: 30px auto; 
-            padding: 25px; 
-            background-color: var(--branco); 
-            border-radius: var(--radius); 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-        }
-        .featured-card {
-            background-color: var(--primaria);
-            color: var(--branco);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-        .featured-card h3 {
-            color: var(--destaque);
-            font-size: 1.8em;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .featured-card p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-        .blog-card { 
-            background-color: var(--secundaria); 
-            border-radius: var(--radius); 
-            padding: 20px; 
-            margin-bottom: 25px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: box-shadow 0.3s;
-        }
-        .blog-card:hover {
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .blog-card h3 { 
-            margin-top: 0; 
-            color: var(--primaria); 
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-        .blog-card p {
-            color: #555;
-        }
-        .blog-card .btn-leitura {
-            margin-top: 15px;
-            padding: 8px 15px;
-            font-size: 0.9em;
-            background-color: var(--destaque);
-            color: var(--branco);
-            cursor: pointer;
-        }
-        .blog-card .btn-leitura:hover {
-             background-color: #e68a00; 
-        }
-        .modal { 
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
-            left: 0; 
-            top: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(0,0,0,0.7); 
-            justify-content: center; 
-            align-items: center; 
-            overflow-y: auto; 
-        }
-        .modal-content { 
-            background-color: var(--branco); 
-            margin: 50px auto;
-            padding: 30px;
-            max-width: 700px; 
-            border-radius: var(--radius); 
-            position: relative; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-        }
-        .modal-content h3 {
-            color: var(--primaria);
-            font-size: 2em;
-            margin-top: 0;
-        }
-        .close-btn { 
-            position: absolute; 
-            top: 10px; 
-            right: 20px; 
-            cursor: pointer; 
-            font-size: 1.8em; 
-            color: var(--texto);
-        }
-        .modal-body p {
-            margin-bottom: 1.5em;
-        }
-    </style>
-</head>
+    </head>
 
 <body>
 
 <header>
-    <h1>Luyon — Blog e Notícias</h1>
+    <h1>Luyon — Projetos Sociais</h1>
     <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">
         <span></span>
         <span></span>
@@ -128,57 +30,9 @@
         </ul>
     </nav>
 </header>
-<section class="hero">
-    <h2>Nossas Histórias e Conquistas</h2>
-    <p>Acompanhe as últimas notícias, o impacto dos projetos e as histórias inspiradoras de nossos jovens e voluntários.</p>
-</section>
 
-<main class="container">
-    <div class="blog-container">
-
-        <h2>Destaque da Semana</h2>
-        <section class="featured-card">
-            <h3>A Arte da Transformação: Como a Luyon Mudou a Vida de Maria</h3>
-            <p>Conheça a história inspiradora de Maria, 10 anos, que encontrou na oficina de pintura a voz que precisava. Sua jornada mostra o poder da arte para curar e empoderar crianças em nossa comunidade.</p>
-            <a href="#" class="btn btn-leitura" onclick="openModal('modal-destaque')">Ler história completa</a>
-        </section>
-
-
-        <h2>Arquivo de Notícias</h2>
-        <section>
-            <div class="blog-card">
-                <h3>Oficina de pintura transforma a vida de crianças</h3>
-                <p>Na última semana, 30 crianças participaram de uma oficina de pintura promovida pela Luyon, explorando sua criatividade e aprendendo técnicas artísticas fundamentais. *Clique para ler o relato completo e ver as fotos.*</p>
-                <a href="#" class="btn btn-leitura" onclick="openModal('modal-post1')">Ler mais</a>
-            </div>
-
-            <div class="blog-card">
-                <h3>Projeto de música reúne jovens talentos</h3>
-                <p>O projeto de música da Luyon contou com a participação de 20 jovens que aprimoraram habilidades em instrumentos e expressão artística, gerando entusiasmo e confiança. *Veja como a música cria pontes na comunidade.*</p>
-                <a href="#" class="btn btn-leitura" onclick="openModal('modal-post2')">Ler mais</a>
-            </div>
-
-            <div class="blog-card">
-                <h3>Teatro comunitário fortalece autoestima</h3>
-                <p>Nosso projeto de teatro permitiu que crianças e adolescentes apresentassem suas primeiras peças, promovendo integração, criatividade e desenvolvimento pessoal. *Detalhes sobre as apresentações e a evolução dos alunos.*</p>
-                <a href="#" class="btn btn-leitura" onclick="openModal('modal-post3')">Ler mais</a>
-            </div>
-
-            <div class="blog-card">
-                <h3>Novo Parceiro: Luyon e ONG Arte Viva Juntos</h3>
-                <p>Anunciamos uma nova parceria estratégica com a ONG Arte Viva para expandir a área de alcance dos nossos projetos de dança e movimento corporal. *Saiba mais sobre a colaboração e os próximos passos.*</p>
-                <a href="#" class="btn btn-leitura" onclick="openModal('modal-post4')">Ler mais</a>
-            </div>
-
-            <p style="text-align: center; margin-top: 40px;">
-                A Luyon apoia iniciativas de arte e impacto social:
-                <a href="https://www.example.com/projeto-social-arte-livre" target="_blank" style="color: var(--primaria); font-weight: bold;">[Link Externo: Projeto Arte Livre]</a> | 
-                <a href="https://www.example.com/site-de-outra-ong" target="_blank" style="color: var(--primaria); font-weight: bold;">[Link Externo: ONG Conexão Jovem]</a>
-            </p>
-        </section>
-    </div>
-
-</main>
+<main id="spa-content" class="container">
+    </main>
 
 <footer>
     <p>&copy; <span id="ano-footer"></span> Luyon. Todos os direitos reservados.</p>
@@ -190,104 +44,13 @@
     </nav>
 </footer>
 
-<div id="modal-destaque" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('modal-destaque')">&times;</span>
-        <h3>A Arte da Transformação: Como a Luyon Mudou a Vida de Maria</h3>
-        <div class="modal-body">
-            <p>
-                **GRAVIDADE E CORPO DE TEXTO:** Maria, de apenas 10 anos, chegou ao projeto Cores do Amanhã em silêncio. Tímida e retraída, ela mal falava com os outros participantes. No entanto, o cavalete de pintura se tornou seu refúgio. Durante meses, suas telas foram ganhando vida com cores vibrantes, contrastando com sua postura reservada. A arte não apenas lhe deu uma forma de expressão; deu-lhe uma voz.
-            </p>
-            <p>
-                Hoje, Maria é uma das alunas mais participativas. Ela não só pinta com maestria, como também orienta os colegas mais novos. "A Luyon me ensinou que minhas cores e minha história são importantes," diz ela com um sorriso. Sua evolução é a prova viva de que a arte, aliada ao propósito, é uma ferramenta poderosa de transformação social. Nossos monitores são treinados para ir além da técnica, enxergando o potencial em cada criança.
-            </p>
-            <p>
-                *Saiba mais sobre o Projeto Cores do Amanhã em nossa página de Projetos.*
-            </p>
-        </div>
-    </div>
-</div>
-
-<div id="modal-post1" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('modal-post1')">&times;</span>
-        <h3>Oficina de pintura transforma a vida de crianças</h3>
-        <div class="modal-body">
-            <p>
-                A última edição da Oficina de Pintura Luyon superou todas as expectativas. Com o tema "Meu Lugar no Mundo", as crianças foram desafiadas a retratar o que significa pertencer à comunidade. O resultado foi um mural comunitário rico em detalhes e emoções.
-            </p>
-            <p>
-                O objetivo desta oficina não é formar artistas, mas sim **promover a criatividade e a autoconfiança**. Ao trabalhar em projetos coletivos e individuais, os pequenos desenvolvem habilidades socioemocionais cruciais, como trabalho em equipe e reconhecimento do seu valor.
-            </p>
-        </div>
-    </div>
-</div>
-
-<div id="modal-post2" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('modal-post2')">&times;</span>
-        <h3>Projeto de música reúne jovens talentos</h3>
-        <div class="modal-body">
-            <p>
-                O Projeto Som das Ruas concluiu seu primeiro módulo com uma apresentação de tirar o fôlego na praça central. Os 20 jovens participantes aprenderam a construir instrumentos com materiais reciclados e a tocar ritmos brasileiros.
-            </p>
-            <p>
-                A música, além de ser uma expressão de cultura, exige **disciplina e dedicação**. Esses valores são transferidos para a vida escolar e familiar dos jovens, mostrando que o projeto vai muito além do palco. Parabéns aos nossos talentosos alunos!
-            </p>
-        </div>
-    </div>
-</div>
-
-<div id="modal-post3" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('modal-post3')">&times;</span>
-        <h3>Teatro comunitário fortalece autoestima</h3>
-        <div class="modal-body">
-            <p>
-                O palco é o lugar onde a vida ganha novas cores. O projeto de Teatro Comunitário da Luyon utilizou peças curtas e improvisação para ajudar adolescentes a superarem a timidez e a melhorarem a comunicação.
-            </p>
-            <p>
-                As apresentações de fim de curso foram um sucesso, com pais e membros da comunidade emocionados ao verem seus filhos brilhando. Acreditamos que a **expressão corporal e a arte dramática** são fundamentais para o desenvolvimento de lideranças jovens.
-            </p>
-        </div>
-    </div>
-</div>
-
-<div id="modal-post4" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('modal-post4')">&times;</span>
-        <h3>Novo Parceiro: Luyon e ONG Arte Viva Juntos</h3>
-        <div class="modal-body">
-            <p>
-                Estamos entusiasmados em anunciar nossa colaboração com a renomada ONG Arte Viva! Esta parceria visa unificar esforços para levar oficinas de dança e movimento para mais duas comunidades. Acreditamos que a sinergia entre organizações potencializa o impacto social.
-            </p>
-            <p>
-                A busca por parcerias fortes e éticas é um dos pilares da Luyon. Juntos, podemos ir mais longe!
-            </p>
-        </div>
-    </div>
-</div>
-
 <script>
     document.getElementById('ano-footer').textContent = new Date().getFullYear();
-
-    function openModal(id) {
-        document.getElementById(id).style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Evita rolagem da página principal
-    }
-
-    function closeModal(id) {
-        document.getElementById(id).style.display = 'none';
-        document.body.style.overflow = 'auto'; // Restaura a rolagem da página principal
-    }
-    
-    // Fechar o modal ao clicar fora dele
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            closeModal(event.target.id);
-        }
-    }
 </script>
-<script src="menu-toggle.js"></script> 
+
+<script src="menu-toggle.js"></script>
+<script src="spa.js"></script>
+<script src="modals.js"></script> 
+
 </body>
 </html>

@@ -1,0 +1,82 @@
+<section class="hero">
+    <h2>Dashboard de Impacto e Responsabilidade</h2>
+    <p>A Luyon garante total transparência no uso dos recursos. Veja o impacto das suas doações em tempo real e nossos relatórios financeiros.</p>
+</section>
+
+<div class="transparencia-container">
+
+    <h2>Impacto Social em Destaque</h2>
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="number">125+</div>
+            <div class="label">Crianças Atendidas</div>
+        </div>
+        <div class="kpi-card">
+            <div class="number">28</div>
+            <div class="label">Voluntários Ativos</div>
+        </div>
+        <div class="kpi-card">
+            <div class="number">5</div>
+            <div class="label">Projetos de Arte</div>
+        </div>
+        <div class="kpi-card">
+            <div class="number">R$ 15K</div>
+            <div class="label">Doações no Último Trimestre</div>
+        </div>
+    </div>
+
+    <section class="chart-card">
+        <h2>Gestão de Recursos Financeiros</h2>
+        
+        <div class="chart-toggle">
+            <button id="toggle-pie" class="active" onclick="toggleChart('pie')">Distribuição de Projetos</button>
+            <button id="toggle-bar" onclick="toggleChart('bar')">Gastos por Categoria</button>
+        </div>
+        
+        <canvas id="chart-recursos" width="400" height="300" aria-label="Gráfico de recursos" role="img"></canvas>
+    </section>
+
+
+    <section class="chart-card">
+        <h3>Voluntários Ativos ao longo do ano</h3>
+        <canvas id="chart-voluntarios" width="400" height="300" aria-label="Gráfico de linha voluntários ao longo do tempo" role="img"></canvas>
+    </section>
+
+    <section>
+        <h2>Balanço Financeiro Resumido</h2>
+        <p>Confira o balanço trimestral de Doações e Gastos.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Doações recebidas (R$)</th>
+                    <th>Gastos (R$)</th>
+                    <th>Saldo (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Janeiro</td>
+                    <td>5.000</td>
+                    <td>3.200</td>
+                    <td>1.800</td>
+                </tr>
+                <tr>
+                    <td>Fevereiro</td>
+                    <td>4.500</td>
+                    <td>2.700</td>
+                    <td>1.800</td>
+                </tr>
+                <tr>
+                    <td>Março</td>
+                    <td>6.000</td>
+                    <td>4.000</td>
+                    <td>2.000</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align:center;">
+            <a href="#" class="btn btn-principal">Baixar relatório completo (PDF)</a>
+        </div>
+    </section>
+</div>
