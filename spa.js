@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contentArea = document.getElementById('spa-content');
     const navLinks = document.querySelectorAll('#main-nav a');
+    
+    // --- CORREÇÃO ESSENCIAL PARA GITHUB PAGES ---
+    // Determina o BASE_PATH (o nome do repositório) apenas se não estiver na raiz do domínio
+    const PATH_NAME = window.location.pathname;
+    const BASE_PATH = PATH_NAME.includes('Desenvolvimento-WEB-Site-Luyon-Ong') 
+        ? '/Desenvolvimento-WEB-Site-Luyon-Ong/'
+        : '/';
+    // --- FIM CORREÇÃO BASE_PATH ---
+    
 
     // --- FUNÇÕES DE UTILIDADE ---
 
@@ -22,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Fecha o menu hamburguer (se houver)
     function closeMenu() {
         const menuToggle = document.querySelector('.menu-toggle');
-        const navUl = document.getElementById('main-nav')?.querySelector('ul'); // Busca a UL real
+        const navUl = document.getElementById('main-nav')?.querySelector('ul'); 
         if (menuToggle && navUl && navUl.classList.contains('open')) {
             navUl.classList.remove('open');
             menuToggle.classList.remove('active');
@@ -70,10 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (url.endsWith('.html')) {
             url = url.replace('.html', '-content.html');
         } else {
+            // Se não for um link de navegação interno, usa o comportamento padrão
             window.location.href = e.currentTarget.getAttribute('href');
             return;
         }
 
+        // Chama loadContent com a URL de conteúdo correta
         loadContent(url);
     }
 
@@ -89,11 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- FUNÇÃO PRINCIPAL DE CARREGAMENTO ---
 
-    function loadContent(url) {
-        fetch(url)
+    function loadContent(contentFilename) {
+        // CORREÇÃO CRÍTICA: Precede o nome do arquivo com o BASE_PATH
+        const fetchUrl = BASE_PATH + contentFilename; 
+
+        fetch(fetchUrl)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Erro ao carregar: ${response.status} - Arquivo ${url}`);
+                    throw new Error(`Erro ao carregar: ${response.status} - Arquivo ${fetchUrl}`);
                 }
                 return response.text();
             })
@@ -101,12 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 contentArea.innerHTML = html; 
 
-                // Lógica de URL
-                let historyUrl = url.replace('-content.html', '.html');
-                if (url === 'index-content.html') {
+                // Lógica de URL para o history.pushState
+                let historyUrl = contentFilename.replace('-content.html', '.html');
+                if (contentFilename === 'index-content.html') {
                     historyUrl = 'index.html';
                 }
-                history.pushState(null, '', historyUrl);
+                
+                // CORREÇÃO: Usa o BASE_PATH na URL de histórico
+                history.pushState(null, '', BASE_PATH + historyUrl);
                 
                 // Atualizações
                 updateActiveMenu(historyUrl);
@@ -117,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch(error => {
                 console.error("Erro no carregamento do conteúdo:", error);
-                // Mensagem de erro amigável (o erro de 404 de um -content.html faltante)
+                // Mensagem de erro amigável (agora usa o fetchUrl corrigido)
                 contentArea.innerHTML = `<h2 style="color: var(--erro); text-align: center;">Erro de Carregamento SPA</h2>
                                         <p style="text-align: center;">Não foi possível carregar o módulo de conteúdo. Verifique se o arquivo: 
-                                        <strong style="color: var(--erro);">${url}</strong> existe na pasta raiz.</p>`;
+                                        <strong style="color: var(--erro);">${fetchUrl}</strong> existe no caminho correto.</p>`;
             });
     }
 
@@ -153,7 +169,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 2. Adiciona suporte para navegação do navegador (botões Voltar/Avançar)
     window.addEventListener('popstate', () => {
-        const path = window.location.pathname.substring(1);
+        // Remove BASE_PATH do pathname para isolar apenas o arquivo .html
+        let path = window.location.pathname.replace(BASE_PATH, '');
+        
+        // Se o path estiver vazio após a remoção (ou seja, estamos na raiz do Pages)
+        if (path === '') {
+            path = 'index.html';
+        }
         
         let contentPath;
         if (path && path.endsWith('.html')) {
@@ -167,8 +189,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // 3. Carrega o conteúdo inicial (CORREÇÃO FINAL DE INICIALIZAÇÃO)
-    const currentPath = window.location.pathname.substring(1);
+   // 3. Carrega o conteúdo inicial
+    // Remove o BASE_PATH da URL atual para obter o arquivo .html puro
+    let currentPath = window.location.pathname.replace(BASE_PATH, '');
+
+    // Se currentPath estiver vazia (raiz), define como index.html
+    if (currentPath === '') {
+        currentPath = 'index.html';
+    }
+    
     let initialContentUrl = 'index-content.html'; 
 
     if (currentPath && currentPath.endsWith('.html')) {
