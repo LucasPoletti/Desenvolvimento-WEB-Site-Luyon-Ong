@@ -189,22 +189,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-   // 3. Carrega o conteúdo inicial
-    // Remove o BASE_PATH da URL atual para obter o arquivo .html puro
-    let currentPath = window.location.pathname.replace(BASE_PATH, '');
+   // 3. Carrega o conteúdo inicial (Corrigindo o problema de carregamento inicial)
+    
+    // Pega o caminho, removendo a barra inicial e o BASE_PATH
+    let rawPath = window.location.pathname.replace(/^\/|\/$/g, '');
+    let initialFilename = rawPath.replace(BASE_PATH.replace(/\//g, ''), ''); 
 
-    // Se currentPath estiver vazia (raiz), define como index.html
-    if (currentPath === '') {
-        currentPath = 'index.html';
+    let initialContentUrl;
+
+    if (initialFilename && initialFilename.endsWith('.html')) {
+        // Se houver um arquivo na URL (ex: projetos.html)
+        initialContentUrl = initialFilename.replace('.html', '-content.html');
+    } else {
+        // Se a URL for apenas a raiz do Pages (sem nome de arquivo)
+        initialContentUrl = 'index-content.html';
+    }
+
+    // A URL que realmente é passada para o loadContent
+    let historyUrl = initialContentUrl.replace('-content.html', '.html');
+    if (initialContentUrl === 'index-content.html') {
+         historyUrl = 'index.html';
     }
     
-    let initialContentUrl = 'index-content.html'; 
-
-    if (currentPath && currentPath.endsWith('.html')) {
-        initialContentUrl = currentPath.replace('.html', '-content.html');
-    }
-
     loadContent(initialContentUrl);
-    updateActiveMenu(currentPath || 'index.html');
-    
-});
+    updateActiveMenu(historyUrl);
+    });
