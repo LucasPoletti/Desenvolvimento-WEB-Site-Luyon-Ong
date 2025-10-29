@@ -706,9 +706,10 @@ td {
     }
     
     /* A classe 'open' (adicionada pelo JS) MOSTRA o menu */
-    nav ul.open { 
-        display: flex; 
-    }
+    /* CORREÇÃO CRÍTICA: Usa o ID do contêiner para garantir que o menu apareça */
+     #main-nav ul.open { 
+    display: flex !important; /* Força a exibição para anular qualquer conflito */
+}
     
     nav a {
         padding: 10px 20px;
