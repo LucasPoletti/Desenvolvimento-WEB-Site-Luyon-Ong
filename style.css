@@ -50,10 +50,11 @@ p { margin-bottom: var(--space-2x); }
 ========================== */
 header {
   background-color: var(--primaria); 
-  padding: var(--space-2x) 0; /* Aplicando a variável */
+  padding: var(--space-2x) 0; 
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* REVERTIDO: Removida a linha 'position: relative;' */
+  /* CORREÇÃO ESSENCIAL: Permite que o menu-toggle flutue corretamente */
+  position: relative;
 }
 
 header h1 {
@@ -69,7 +70,8 @@ header h1 {
     border: none;
     cursor: pointer;
     padding: 8px; 
-    position: relative; 
+    /* Garante que o botão flutue absolutamente dentro do header */
+    position: absolute; 
     top: 15px;
     right: 20px;
     z-index: 1001; 
@@ -389,71 +391,11 @@ footer nav a:hover {
 
 /* ==========================
    MEDIA QUERIES (Responsividade)
-   NOVO: 5 Pontos de Interrupção Implementados (Macro 2)
 ========================== */
-/* Ponto de Interrupção 1: Mobile (max-width: 600px) */
-@media (max-width: 600px) {
-    /* Demais ajustes mobile */
-    .hero {
-        padding: 30px 15px;
-    }
-    .hero h2 {
-        font-size: 2em;
-    }
-    .hero-actions {
-        flex-direction: column;
-    }
-    .btn {
-        width: 100%;
-    }
-    .form-container {
-        padding: 20px 15px;
-    }
-}
-/* ==========================
-   ESTILOS MENU HAMBÚRGUER (MACRO 2)
-========================== */
-header {
-    /* Adicione position: relative para que o botão flutue */
-    position: relative;
-    /* Manter o restante dos estilos do cabeçalho */
-    background-color: var(--primaria); 
-    padding: 15px 0;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-.menu-toggle {
-    display: none; /* Escondido por padrão em desktop */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px; 
-    position: absolute; 
-    top: 15px;
-    right: 20px;
-    z-index: 1001; 
-}
+/* CORREÇÃO: Bloco Menu Hambúrguer (Reaplicado para garantir que position: absolute funcione) */
+/* Removido o bloco redundante que estava fora do @media */
 
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--branco);
-    margin: 4px 0;
-    transition: transform 0.3s ease, opacity 0.3s;
-}
-
-/* Efeito de rotação para formar um 'X' ao abrir */
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
 
 /* ==========================
    ESTILOS ESPECÍFICOS: DOAÇÕES (PIX)
@@ -493,60 +435,6 @@ header {
     font-size: 0.95em;
 }
 
-/* ==========================
-   MEDIA QUERIES (Responsividade)
-   (O SEU BLOCO ANTIGO É COPIADO AQUI E ADICIONADO O CSS DO MENU MOBILE)
-========================== */
-@media (max-width: 600px) {
-    /* MOSTRAR o botão sanduíche no mobile */
-    .menu-toggle {
-        display: block; 
-    }
-    
-    /* ESCONDER o menu em mobile (até que o JS adicione a classe 'open') */
-    nav ul {
-        display: none; 
-        flex-direction: column; 
-        width: 100%;
-        background-color: var(--primaria);
-        position: absolute;
-        left: 0;
-        top: 60px; 
-        padding: 16px 0; 
-        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
-        text-align: center;
-        z-index: 1000;
-        margin: 0; 
-    }
-    
-    /* A classe 'open' (adicionada pelo JS) MOSTRA o menu */
-    nav ul.open { 
-        display: flex; 
-    }
-    
-    nav a {
-        padding: 10px 20px;
-        width: 100%;
-        border-radius: 0; 
-    }
-
-    /* Demais ajustes mobile (EXISTENTES NO SEU CÓDIGO) */
-    .hero {
-        padding: 30px 15px;
-    }
-    .hero h2 {
-        font-size: 2em;
-    }
-    .hero-actions {
-        flex-direction: column;
-    }
-    .btn {
-        width: 100%;
-    }
-    .form-container {
-        padding: 20px 15px;
-    }
-}
 /* ==========================
    ESTILOS ESPECÍFICOS: TRANSPARÊNCIA (CHART/KPIs)
 ========================== */
@@ -770,4 +658,78 @@ td {
     background-color: rgba(36, 179, 107, 0.1); 
     border: 1px solid var(--sucesso);
     display: none; 
+}
+
+/* Ponto de Interrupção 1: Mobile (max-width: 600px) */
+/* Ponto de Interrupção 1: Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+    /* Ajusta o padding do header para criar espaço para o botão */
+    header {
+        /* Cria espaço à direita (60px) para o botão menu-toggle */
+        padding: 15px 60px 15px 20px; /* Top, Right (Espaço para botão), Bottom, Left */
+        text-align: center; 
+    }
+    
+    header h1 {
+        text-align: center;
+        margin-right: 0; 
+        /* CORREÇÃO CRÍTICA: Limita a largura do título para garantir que ele não cubra o botão. */
+        /* O botão tem 25px de largura + padding + right: 20px, então 80px é uma margem segura. */
+        max-width: calc(100% - 80px); 
+        margin: 0 auto;
+    }
+
+    /* MOSTRAR o botão sanduíche no mobile */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    /* Z-Index EXTRA para garantir que o botão sempre esteja por cima */
+    .menu-toggle {
+        z-index: 9999; /* Z-Index muito alto para garantir o clique */
+    }
+    
+    /* ESCONDER o menu em mobile (até que o JS adicione a classe 'open') */
+    nav ul {
+        display: none; 
+        flex-direction: column; 
+        width: 100%;
+        background-color: var(--primaria);
+        position: absolute;
+        left: 0;
+        top: 60px; /* Alinhe sob o cabeçalho */
+        padding: 16px 0; 
+        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+        text-align: center;
+        z-index: 1000;
+        margin: 0; 
+    }
+    
+    /* A classe 'open' (adicionada pelo JS) MOSTRA o menu */
+    nav ul.open { 
+        display: flex; 
+    }
+    
+    nav a {
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 0; 
+    }
+
+    /* Demais ajustes mobile */
+    .hero {
+        padding: 30px 15px;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .hero-actions {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+    }
+    .form-container {
+        padding: 20px 15px;
+    }
 }
